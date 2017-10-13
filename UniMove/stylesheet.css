@@ -13,9 +13,11 @@ body{
     margin: 0;
     color: #E2E1DF;
 }
+main{
+    padding: 0 160px;
+}
 body[title="index"]{
     background-color: #114E54;
-    margin: 0 160px;
 }
 .row::after{
     content: "";
@@ -235,3 +237,8 @@ a[title="forgot"]{
     }
 
 /* STOP HEADER */
+
+[class="col-6 events"], [class="col-6 details"]{
+    font-size: 30px;
+    color: #114E54;
+}
