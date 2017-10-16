@@ -1,6 +1,6 @@
 @font-face {
     font-family:"Miso";
-    src:url("font/miso.eot?") format("font/eot"),url("font/miso.woff") format("font/woff"),url("font/miso.ttf") format("truetype"),url("font/miso.svg#Miso") format("svg");
+    src:url("miso.eot?") format("eot"),url("miso.woff") format("woff"),url("miso.ttf") format("truetype"),url("miso.svg#Miso") format("svg");
     font-weight:normal;
     font-style:normal;
 }
@@ -11,10 +11,12 @@ body{
     text-align: center;
     font-family: Miso;
     margin: 0;
-    background-color: #E2E1DF;
+    color: #E2E1DF;
 }
 main{
     padding: 0 160px;
+    max-width: 1600px;
+    margin: auto;
 }
 body[title="index"]{
     background-color: #114E54;
@@ -80,13 +82,13 @@ input[title="username"], input[title="password"]{
     display: block;
     height: 30px;
     border-radius: 15px;
-    font-family: "Miso";
+    font-family: Miso;
     font-size: 15px;
     color: #114E54;
     padding-left: 15px;
 }
 input[title="username"]::-webkit-input-placeholder, input[title="password"]::-webkit-input-placeholder{
-    font-family: "Miso";
+    font-family: Miso;
     font-size: 15px;
     color: #114E54;
 }
@@ -94,7 +96,7 @@ form[title="login"] input[title="submit"]{
     width: 100%;
     height: 40px;
     border-radius: 20px;
-    font-family: "Miso";
+    font-family: Miso;
     font-size: 30px;
     color: #114E54;
     margin-top: 10px;
@@ -227,6 +229,9 @@ a[title="forgot"]{
         text-shadow: -1px 5px 13px #000000;
         margin: 0;
     }
+    header [class*="h1"] a{
+        text-decoration: none;
+    }
     header nav a{
         font-family: Muli;
         font-size: 20px;
@@ -238,112 +243,167 @@ a[title="forgot"]{
 
 /* STOP HEADER */
 
-/*Sorry but this class??? Which section it belongs?*/
-[class="col-6 events"], [class="col-6 details"]{
+/* HOME MAIN */
+
+[class*="col-6 events"], [class*="col-6 details"]{
     font-size: 30px;
     color: #114E54;
 }
+[class*="col-6 home"]{
+    height: 58vh;
+    overflow-y: hidden;
+}
+[class*="col-6 home"]:first-of-type{
+    border-width: 0 2px 0 0;
+    border-style: solid;
+    border-color: #114E54;
+    overflow-y: scroll;
+}
+[class="col-6 home"]:first-of-type div.row hr, [class="col-6 home"]:first-of-type div.row div[class*="date"] span{
+    color: #95989A;
+}
+[class*="col-6 home"] div[class="event"]{
+    height: 18.3%;
+    border-radius: 10px;
+    background-color: rgba(239, 99, 72, .75);
+    overflow: hidden;
+    color: #114E54;
+}
+div[class="event"] img[title="event image"]{
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+}
+div[class="event"] p{
+    height: 20%;
+    margin: 0 0 0 3px;
+    font-size: 15px;
+    text-align: left;
+}
+div[class="event"] div{
+    height: 40%;
+    margin: 0;
+}
+div[class="event"] span{
+    text-align: left;
+    font-size: 12px;
+    float: left;
+    margin: 0 0 0 3px;
+}
+div[class="event"] img[title="event organizer"]{
+    width: auto;
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+    float: right;
+    margin: 0;
+}
+section[class*="col-6 home"]:last-of-type div[class*="col-8 hr"] hr{
+    border: 1px solid #114E54;
+}
+
+/* STOP HOME MAIN */
 
 /* MAIN PROFILE */
 
 /*Main Profile first part*/
 
 .main_profile{
-
-    margin-top: 20px;
-
-}
-
-/*General Input*/
-
-.main_profile .row div input{
-
-    width: 218px;
-    height: 24px;
-    padding-left: 10px;
-    border-radius: 20px;
-    font-family: Miso;
-    font-size: 15px;
-    color: #95989A;
-
-}
-
-/*Submit Button*/
-.main_profile .row div input[type="submit"]{
-
-    display: block;
-    width: 218.37px;
-    height: 24px;
-    background-color: #114E54;
-    color: #e1e2df;
-
-}
-
-button {
-
-    margin-top: 34px;
-    margin-bottom: 6px;
-    background-color: transparent;
-    border: 0;
-
-}
-
-input[value="Salva modifiche"]{
-
-    margin-top: 90px;
     
-}
-
-.main_profile .row p{
-
-    font-family: "Miso";
-    font-size: 15px;
-    font-weight: "Regular";
-    text-align: left;
-    color: #114E54;
-
-}
-
-/* hr */
-
-hr{
-
-    overflow: hidden;
-    height: 3px;
-    background-color: #114E54;
-
-}
-
-/*Main Profile second part*/
-
-.eventsgrid{
+        margin-top: 20px;
     
-    overflow-y: scroll;
-    margin: 10px;
-    height: 330px;
-    widows: 100px;
+    }
     
-}
-
-.eventsgrid .col-3 img{
-
-    margin-bottom: 24px;
-    width: 222px;
-    height: 144px;
-    border-radius: 20px;
-    box-shadow: 1px 0px 0.5px 0.5px #000000; 
-
-}
-
-.main_profile .row div h3{
+    /*General Input*/
     
-    display: inline;
-    font-family: Miso;
-    font-size: 19px;
-    font-weight: ExtraBold;
-    text-align: center;
-    color: #114E54;
-
-}
-
-/* STOP MAIN PROFILE*/
+    .main_profile .row div input{
+    
+        width: 218px;
+        height: 24px;
+        padding-left: 10px;
+        border-radius: 20px;
+        font-family: Miso;
+        font-size: 15px;
+        color: #95989A;
+    
+    }
+    
+    /*Submit Button*/
+    .main_profile .row div input[type="submit"]{
+    
+        display: block;
+        width: 218.37px;
+        height: 24px;
+        background-color: #114E54;
+        color: #e1e2df;
+    
+    }
+    
+    button {
+    
+        margin-top: 34px;
+        margin-bottom: 6px;
+        background-color: transparent;
+        border: 0;
+    
+    }
+    
+    input[value="Salva modifiche"]{
+    
+        margin-top: 90px;
+        
+    }
+    
+    .main_profile .row p{
+    
+        font-family: "Miso";
+        font-size: 15px;
+        font-weight: "Regular";
+        text-align: left;
+        color: #114E54;
+    
+    }
+    
+    /* hr */
+    
+    hr{
+    
+        overflow: hidden;
+        height: 3px;
+        background-color: #114E54;
+    
+    }
+    
+    /*Main Profile second part*/
+    
+    .eventsgrid{
+        
+        overflow-y: scroll;
+        margin: 10px;
+        height: 330px;
+        widows: 100px;
+        
+    }
+    
+    .eventsgrid .col-3 img{
+    
+        margin-bottom: 24px;
+        width: 222px;
+        height: 144px;
+        border-radius: 20px;
+        box-shadow: 1px 0px 0.5px 0.5px #000000; 
+    
+    }
+    
+    .main_profile .row div h3{
+        
+        display: inline;
+        font-family: Miso;
+        font-size: 19px;
+        font-weight: ExtraBold;
+        text-align: center;
+        color: #114E54;
+    
+    }
+    
+    /* STOP MAIN PROFILE*/
