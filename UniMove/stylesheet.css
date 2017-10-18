@@ -87,6 +87,13 @@ input[title="username"], input[title="password"]{
     color: #114E54;
     padding-left: 15px;
 }
+p[class="col-4 check"]{
+    color: #E64448;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: left;
+    margin: 5px 0 0 0;
+}
 input[title="username"]::-webkit-input-placeholder, input[title="password"]::-webkit-input-placeholder{
     font-family: Miso;
     font-size: 15px;
@@ -259,6 +266,28 @@ a[title="forgot"]{
     border-color: #114E54;
     overflow-y: scroll;
 }
+
+
+[class*="col-6 home"]:first-of-type::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+[class*="col-6 home"]:first-of-type::-webkit-scrollbar
+{
+    width: 10px;
+	background-color: #F5F5F5;
+}
+
+[class*="col-6 home"]:first-of-type::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: gray;
+}
+
 [class="col-6 home"]:first-of-type div.row hr, [class="col-6 home"]:first-of-type div.row div[class*="date"] span{
     color: #95989A;
 }

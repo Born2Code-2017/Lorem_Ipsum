@@ -1,0 +1,30 @@
+[{
+    "name": "Hakcathon MAXXI - Day 1",
+    "date": "2017-10-21",
+    "timeStart":"09:00:00",
+    "timeEnd":"24:00:00",
+    "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
+
+    "location": "Via Guido Reni 4A - 00196 Roma",
+    "image": "./maxxi.jpg",
+    "tags": ["art","culture"],
+    "owner": "MAXXI",
+    "participants": 51,
+    "interested": 107,
+    "notGoing": 60
+},
+{
+    "name": "Hakcathon MAXXI - Day 2",
+    "date": "2017-10-22",
+    "timeStart":"00:00:00",
+    "timeEnd":"18:30:00",
+    "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
+
+    "location": "Via Guido Reni 4A - 00196 Roma",
+    "image": "./maxxi.jpg",
+    "tags": ["art","culture"],
+    "owner": "MAXXI",
+    "participants": 40,
+    "interested": 107,
+    "notGoing": 70
+}]

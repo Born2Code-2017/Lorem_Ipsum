@@ -1,4 +1,4 @@
-<!DOCKTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,23 +12,25 @@
                 <img id="logo" src="img/unimove.png" title="logo" alt="logo unimove">
             </div>
         </div>
-        <form title="login">
+        <form title="login" action="home.html">
             <div class="row">
                 <div class="col-4 blank"></div>
                 <div class="col-4 username">
-                    <input type="text" title="username" placeholder="username">
+                    <input type="text" id="username" title="username" placeholder="username" novalidate>
                 </div>
+                <p id="userCheck" class="col-4 check"></p>
             </div>
             <div class="row">
                 <div class="col-4 blank"></div>
                 <div class="col-4 password">
-                    <input type="text" title="password" placeholder="password">
+                    <input type="password" id="password" title="password" placeholder="password" novalidate>
                 </div>
+                <p id="passCheck" class="col-4 check"></p>
             </div>
             <div class="row">
                 <div class="col-4 blank"></div>
                 <div class="col-4 submit">
-                    <a title="home" href="home.html"><input type="button" title="submit" value="Login"></a>
+                    <input type="submit" id="submit" title="submit" value="Login" preventDefault>
                 </div>
             </div>
             <div class="row">
@@ -47,5 +49,6 @@
                 </div>
             </div>
         </form>
+        <script src="index.js"></script>
     </body>
 </html>
