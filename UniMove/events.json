@@ -6,7 +6,7 @@
     "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
 
     "location": "Via Guido Reni 4A - 00196 Roma",
-    "image": "./maxxi.jpg",
+    "image": "img/martini.jpg",
     "tags": ["art","culture"],
     "owner": "MAXXI",
     "participants": 51,
@@ -21,7 +21,52 @@
     "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
 
     "location": "Via Guido Reni 4A - 00196 Roma",
-    "image": "./maxxi.jpg",
+    "image": "img/martini.jpg",
+    "tags": ["art","culture"],
+    "owner": "MAXXI",
+    "participants": 40,
+    "interested": 107,
+    "notGoing": 70
+},
+{
+    "name": "Aperitech",
+    "date": "2017-11-10",
+    "timeStart":"00:00:00",
+    "timeEnd":"18:30:00",
+    "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
+
+    "location": "Via Guido Reni 4A - 00196 Roma",
+    "image": "img/martini.jpg",
+    "tags": ["art","culture"],
+    "owner": "MAXXI",
+    "participants": 40,
+    "interested": 107,
+    "notGoing": 70
+},
+{
+    "name": "Hakcathon Groupama",
+    "date": "2018-01-17",
+    "timeStart":"00:00:00",
+    "timeEnd":"18:30:00",
+    "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
+
+    "location": "Via Guido Reni 4A - 00196 Roma",
+    "image": "img/martini.jpg",
+    "tags": ["art","culture"],
+    "owner": "MAXXI",
+    "participants": 40,
+    "interested": 107,
+    "notGoing": 70
+},
+{
+    "name": "Groupama",
+    "date": "2018-01-17",
+    "timeStart":"00:00:00",
+    "timeEnd":"18:30:00",
+    "description" : "Partecipa al primo hackathon del MAXXI! 34 ore no-stop e un mix di competenze per caricare di energia innovativa l’esperienza del museo.",
+
+    "location": "Via Guido Reni 4A - 00196 Roma",
+    "image": "img/martini.jpg",
     "tags": ["art","culture"],
     "owner": "MAXXI",
     "participants": 40,
