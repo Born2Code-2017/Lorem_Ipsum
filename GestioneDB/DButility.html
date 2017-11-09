@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="scripts/libs/jquery.min.js"></script>
+    <title>DB Utility</title>
+</head>
+<body>
+    <div style="width: 100%; margin:0; padding: 0;">
+        <button type="button" id="logDB" style="width: 100%;">log database</button>
+        <form style="width: 48%; margin: 1%; float: left;">
+            <label for="user">Username: </label>
+            <input type="text" id="user" style="width:50%; margin-bottom: 25px;">
+            <br>
+            <label for="password">Password: </label>
+            <input type="text" id="password" style="width:50%; margin-bottom: 25px;">
+            <br>
+            <label for="birth">Data di nascita: </label>
+            <input type="date" id="birth" style="width:50%; margin-bottom: 25px;">
+            <br>
+            <label for="photo">Url foto profilo: </label>
+            <input type="text" id="photo" style="width:50%; margin-bottom: 25px;">
+            <br>
+            <label for="facolta">Facoltà: </label>
+            <input type="text" id="facolta" style="width:50%; margin-bottom: 25px;">
+            <br>
+            <label for="partecipa">Eventi a cui partecipa: </label>
+            <input type="text" id="partecipa" style="width:50%; margin-bottom: 25px;" placeholder="1,2,3,4">
+            <br>
+            <label for="creati">Eventi creati: </label>
+            <input type="text" id="creati" style="width:50%; margin-bottom: 25px;" placeholder="1,2,3,4">
+            <div>
+                <button type="button" id="save_btn" style="width: 25%; float: left">Save</button>
+                <button type="button" id="delete_btn" style="width: 25%; float: left">Delete</button>
+                <button type="button" id="deleteAll_btn" style="width: 25%; float: left">Delete All</button>
+                <button type="button" id="clear_btn" style="width: 25%; float: left">Clear</button>
+            </div>
+        </form>
+        <div id="user_list" style="width: 48%; margin: 1%; float: left; background-color: lightgray;">
+            <h1 style="text-align: center; width: 100%;">Users:</h1>
+            <ul></ul>
+        </div>
+    </div>
+    
+
+
+    <script src="DButility.js"></script>
+</body>
+</html>
