@@ -1,6 +1,6 @@
 @font-face {
     font-family:"Miso";
-    src:url("miso.eot?") format("eot"),url("miso.woff") format("woff"),url("miso.ttf") format("truetype"),url("miso.svg#Miso") format("svg");
+    src:url("font/miso.eot?") format("eot"),url("font/miso.woff") format("woff"),url("font/miso.ttf") format("truetype"),url("font/miso.svg#Miso") format("svg");
     font-weight:normal;
     font-style:normal;
 }
@@ -364,7 +364,7 @@ section[class*="col-6 home"]:last-of-type div[class*="col-8 hr"] hr{
         width: 218.37px;
         height: 24px;
         background-color: #114E54;
-        color: #e1e2df;
+        color: black;
     
     }
     
