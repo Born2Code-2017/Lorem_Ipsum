@@ -1,4 +1,5 @@
-(function(){
+(function()
+{
     var username = document.getElementById('username');
     var password = document.getElementById('password');
     var submit = document.getElementById('submit');
@@ -9,29 +10,38 @@
     var pssValid = false;
     var formValid = false;
     
-    var checkIfValid = function(input, output){
-        if (input.value === ''){
+    var checkIfValid = function(input, output)
+    {
+        if (input.value === '')
+        {
             output.innerHTML = 'Campo obbligatorio!';
             return false;
         }
-        else{
+        else
+        {
             output.innerHTML = '';
             return true;
         }
     }
 
-    submit.onclick = function(){
+    submit.onclick = function()
+    {
         formValid = false;
         userValid = checkIfValid(username, userCheck);
         passValid = checkIfValid(password, passCheck);
-        if (!(userValid && passValid)){
+        if (!(userValid && passValid))
+        {
             submit.disabled = true;
         }
     }
-    username.onclick = function(){
+
+    username.onclick = function()
+    {
         submit.disabled = false;
     }
-    password.onclick = function(){
+
+    password.onclick = function()
+    {
         submit.disabled = false;
     }
 })();
