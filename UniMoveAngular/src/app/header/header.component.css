@@ -1,0 +1,48 @@
+.container{
+    background-color: #114E54;
+    padding: 0 160px;
+    margin: 0;
+    width: 100%;
+}
+div[name="me"]{
+    text-align: center;
+}
+div[name="me"] img{
+    width: 100px;
+    height: 100px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    margin-bottom: 10px;
+}
+a[name="logout"]{
+    color: #0381D5;
+    text-decoration: underline;
+    font-size: 12px;
+    margin: auto;
+}
+img[name="logo movimento"]{
+    height: 100px;
+    margin-bottom: 10px;
+}
+div[name="movement"] span{
+    font-size: 15px;
+    color: #C78A2E;
+}
+header h1{
+    font-size: 72px;
+    text-shadow: -1px 5px 13px #000000;
+    margin: 0;
+}
+header [class*="h1"] a{
+    text-decoration: none;
+}
+header nav a{
+    font-family: Muli;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    margin: auto;
+    font-weight: 900;
+}
