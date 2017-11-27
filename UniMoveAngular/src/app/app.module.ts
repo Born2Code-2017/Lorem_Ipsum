@@ -10,11 +10,13 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routes';
 import { UsersService } from './users/users.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, HeaderComponent, HomeComponent
+    AppComponent, LoginComponent, HeaderComponent, HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing
