@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2" name="me">
-            <img src={{usersService.loggedUser.urlFotoProfilo}}> <!-- binding non funzionante -->
+            <img src={{loggedUser.fotoProfilo}}> <!-- binding non funzionante -->
             <a href="/login" name="logout">Logout</a>
         </div>
         <div class="col-md-4 col-md-offset-2 nav">
@@ -26,4 +26,3 @@
         </div>
     </div>
 </div>
-<button class="btn btn-alert" (click)="logUser()">prova</button>

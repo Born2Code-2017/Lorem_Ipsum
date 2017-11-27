@@ -12,17 +12,19 @@ export class AppComponent {
   baseUrl: string;
   url: string;
 
-  users: User[];
-  @Output() loggedUser: User;
-  @Output() logUser: User;
-  isUserLogged: boolean;
-
-  test: string;
+  loggedUser: User;
 
   constructor(
     private usersService: UsersService
   ){
     this.baseUrl = "https://born2code-d2578.firebaseio.com/";
     this.url = this.baseUrl + 'loremipsum/unimove/users.json';
+    this.loggedUser = this.usersService.loggedUser;
+    if (this.loggedUser.username){
+      this.usersService.isUserLogged = true;
+    }
+    else{
+      this.usersService.isUserLogged = false;
+    }
   }
 }

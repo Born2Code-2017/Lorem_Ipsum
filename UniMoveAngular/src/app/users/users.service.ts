@@ -10,12 +10,13 @@ export class UsersService{
     private apiUrl: string;
     public users: User[];
     public loggedUser: User;
+    public isUserLogged: boolean;
 
     constructor(private http: Http){
         this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove/users.json';
         this.updateUsers()
             .subscribe(arg => this.users = arg);
-        this.loggedUser = null;
+        this.loggedUser = new User();
     }
 
     private updateUsers(){

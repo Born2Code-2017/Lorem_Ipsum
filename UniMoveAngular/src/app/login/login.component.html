@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 logo">
@@ -7,7 +8,7 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" name="login" novalidate>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 username">
-                <input class="form-control" required [(ngModel)]="username" #user="ngModel" type="text" id="username" name="username" placeholder="Username..." (click)="resetValidators()">
+                <input class="form-control" required [(ngModel)]="username" #user="ngModel" type="text" id="username" name="username" placeholder="Username..." (click)="resetValidators()" (keyup.enter)="login()">
             </div>
             <div *ngIf="user.touched && !user.valid" class="col-md-4 check">
                 Username is required
@@ -15,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 password">
-                <input class="form-control" required #pass="ngModel" [(ngModel)]="password" type="password" id="password" name="password" placeholder="Password...">
+                <input class="form-control" required #pass="ngModel" [(ngModel)]="password" type="password" id="password" name="password" placeholder="Password..."  (keyup.enter)="login()">
             </div>
             <div *ngIf="pass.touched && !pass.valid" class="col-md-4 check">
                 Password is required

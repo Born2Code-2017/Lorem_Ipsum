@@ -21,21 +21,23 @@ export class LoginComponent {
         private router: Router,
         private usersService: UsersService
     ) {
-        this.usersService.loggedUser = null;
         this.username = '';
         this.password = '';
+        usersService.loggedUser = new User();
         this.isLoginFailed = false;
     }
 
     login(){
         for (let user of this.usersService.users){
-            if (user.username.toLocaleLowerCase() == this.username.toLocaleLowerCase()){
+            if (user.username.toLocaleLowerCase() == this.username.toLocaleLowerCase() && this.password != ''){
                 this.isLoginFailed = false;
                 this.usersService.loggedUser = user;
+                this.usersService.isUserLogged = true;
                 this.router.navigateByUrl('/home');
                 break;
             }
             else{
+                this.usersService.isUserLogged = false;
                 this.isLoginFailed = true;
             }
         }

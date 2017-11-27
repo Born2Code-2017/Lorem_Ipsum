@@ -10,14 +10,12 @@ import { UsersService } from '../users/users.service';
 
 export class HeaderComponent {
 
+    loggedUser: User;
+
     constructor(
-        private userService: UsersService
+        private usersService: UsersService
     ) {
-        
-    }
-
-    logUser(){
-        console.log(this.userService.loggedUser)
-    }
-
+        this.loggedUser = this.usersService.loggedUser;
+        console.log(this.loggedUser);
+     }
 }
