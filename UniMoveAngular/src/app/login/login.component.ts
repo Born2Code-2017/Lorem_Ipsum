@@ -27,23 +27,23 @@ export class LoginComponent {
         this.isLoginFailed = false;
     }
 
-    login() {
-        for (let user of this.usersService.users) {
-            if (user.username.toLocaleLowerCase() == this.username.toLocaleLowerCase() && this.password != '') {
+    login(){
+        for (let user of this.usersService.users){
+            if (user.username.toLocaleLowerCase() == this.username.toLocaleLowerCase() && this.password != ''){
                 this.isLoginFailed = false;
                 this.usersService.loggedUser = user;
                 this.usersService.isUserLogged = true;
                 this.router.navigateByUrl('/home');
                 break;
             }
-            else {
+            else{
                 this.usersService.isUserLogged = false;
                 this.isLoginFailed = true;
             }
         }
     }
 
-    resetValidators() {
+    resetValidators(){
         this.isLoginFailed = false;
     }
 }

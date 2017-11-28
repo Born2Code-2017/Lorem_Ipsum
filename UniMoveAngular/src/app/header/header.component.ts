@@ -9,11 +9,13 @@ import { UsersService } from '../users/users.service';
 })
 
 export class HeaderComponent {
+
     loggedUser: User;
 
     constructor(
         private usersService: UsersService
     ) {
         this.loggedUser = this.usersService.loggedUser;
-    }
+        console.log(this.loggedUser);
+     }
 }
