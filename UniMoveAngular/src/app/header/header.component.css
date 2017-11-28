@@ -1,13 +1,24 @@
-.headerContainer{
-    background-color: #114E54;
-    padding: 0 160px;
+.container{
+    color: #E2E1DF;
+    background: linear-gradient(to right, #9292EE , #FF90A2);
     margin: 0;
     width: 100%;
-    height: 100%;
+    overflow: hidden;
+    padding-top: 1.5%;
 }
-div[name="me"]{
-    text-align: center;
+
+.container > div, nav{
+    display: inline-block;
 }
+
+nav{
+    padding-top: 2.5%;
+}
+
+img[name="logo app"]{
+    width: 100%;
+}
+
 div[name="me"] img{
     width: 100px;
     height: 100px;
@@ -23,6 +34,11 @@ a[name="logout"]{
     font-size: 12px;
     margin: auto;
 }
+/*
+div[name="me"]{
+    text-align: center;
+}
+
 img[name="logo movimento"]{
     height: 100px;
     margin-bottom: 10px;
@@ -40,10 +56,10 @@ header [class*="h1"] a{
     text-decoration: none;
 }
 header nav a{
-    font-family: Muli;
+    font-family: Lato;
     font-size: 20px;
     color: white;
     text-decoration: none;
     margin: auto;
     font-weight: 900;
-}
+}*/

@@ -1,6 +1,3 @@
-.homeContainter{
-    width: 100%;
-}
-app-sidebar{
-    height: 100%;
+.containter{
+    background-color: white;
 }
