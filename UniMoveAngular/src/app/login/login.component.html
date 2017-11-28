@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 logo">
@@ -7,7 +8,7 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" name="login" novalidate>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 username">
-                <input required [(ngModel)]="username" #user="ngModel" type="text" id="username" name="username" placeholder="Username...">
+                <input class="form-control" required [(ngModel)]="username" #user="ngModel" type="text" id="username" name="username" placeholder="Username..." (click)="resetValidators()" (keyup.enter)="login()">
             </div>
             <div *ngIf="user.touched && !user.valid" class="col-md-4 check">
                 Username is required
@@ -15,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 password">
-                <input required #pass="ngModel" [(ngModel)]="password" type="password" id="password" name="password" placeholder="Password...">
+                <input class="form-control" required #pass="ngModel" [(ngModel)]="password" type="password" id="password" name="password" placeholder="Password..."  (keyup.enter)="login()">
             </div>
             <div *ngIf="pass.touched && !pass.valid" class="col-md-4 check">
                 Password is required
@@ -23,7 +24,9 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 submit">
-                <button [disabled]="!f.form.valid" type="button" id="submit" name="submit" (click)="login()">Submit</button>
+                <button class="btn btn-default" [disabled]="!f.form.valid" type="button" id="submit" name="submit" (click)="login()">
+                    <i class="glyphicon glyphicon-send"></i> Submit
+                </button>
             </div>
         </div>
         <div class="row">
@@ -32,17 +35,13 @@
             </div>
         </div>
         <div class="row">
-            <div>
-                <div class="col-xs-6 col-sm-4 col-sm-offset-2 col-md-2 col-md-offset-4 fix">
-                    <div class="remember">
-                        <input type="checkbox" value="None" id="remember" name="check" checked />
-                        <label for="remember"></label>
-                    </div>
-                    <label name="non ti scordar">Non ti scordar di me</label>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-2 forgot">
-                    <a name="forgot">Credenziali dimenticate</a>
-                </div>
+            <div class="checkbox col-xs-6 col-sm-4 col-sm-offset-2 col-md-2 col-md-offset-4 fix">
+                <label>
+                    <input type="checkbox" id="remember" name="check" checked/> Non ti scordar di me
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-2 forgot">
+                <a name="forgot">Credenziali dimenticate</a>
             </div>
         </div>
     </form>

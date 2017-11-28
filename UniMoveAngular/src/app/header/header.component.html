@@ -1,0 +1,21 @@
+<div class="container" [routerLinkActive]="['active']">
+
+            <div class="col-md-2" name="logo">
+                <img src="assets/img/unimove.png" name="logo app" alt="logo app">
+            </div>
+            <nav class="col-md-8" name="menu" >
+                <div class="col-md-1 col-md-offset-1 home">
+                    <a [routerLink]="['/home']" name="home">Home</a>
+                </div>
+                <div class="col-md-1 profile">
+                    <a [routerLink]="['/profile']" name="profilo">Profilo</a>
+                </div>
+                <div class="col-md-1 FAQ">
+                    <a [routerLink]="['/faq']" name="faq">FAQ</a>
+                </div>
+            </nav>
+            <div class="text-center col-md-2" name="me">
+                <img src={{loggedUser.fotoProfilo}}>
+                <br><a  [routerLink]="['/logout']" name="logout" >Logout</a>
+            </div>
+</div>

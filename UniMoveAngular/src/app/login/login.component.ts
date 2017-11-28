@@ -1,6 +1,8 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from '../app.models';
+import { Router } from '@angular/router';
+import { UsersService } from '../users/users.service';
 
 @Component({
     selector: 'app-login',
@@ -15,34 +17,33 @@ export class LoginComponent {
 
     isLoginFailed: boolean;
 
-    @Output()
-    onSuccessfulLogin: EventEmitter<any>;
-
-    @Input()
-    users: User[];
-
-    @Input()
-    loggedUser: User;
-
-    constructor() {
+    constructor(
+        private router: Router,
+        private usersService: UsersService
+    ) {
         this.username = '';
         this.password = '';
+        usersService.loggedUser = new User();
         this.isLoginFailed = false;
-        this.onSuccessfulLogin = new EventEmitter();
     }
 
-    login(){
-        for (let user of this.users){
-            if (user.username == this.username){
+    login() {
+        for (let user of this.usersService.users) {
+            if (user.username.toLocaleLowerCase() == this.username.toLocaleLowerCase() && this.password != '') {
                 this.isLoginFailed = false;
-                this.loggedUser = user;
-            this.onSuccessfulLogin.emit()
+                this.usersService.loggedUser = user;
+                this.usersService.isUserLogged = true;
+                this.router.navigateByUrl('/home');
                 break;
             }
-            else{
+            else {
+                this.usersService.isUserLogged = false;
                 this.isLoginFailed = true;
             }
         }
     }
 
+    resetValidators() {
+        this.isLoginFailed = false;
+    }
 }

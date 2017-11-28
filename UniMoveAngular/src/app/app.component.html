@@ -1,1 +1,4 @@
-<app-login *ngIf="!isUserLogged" [users]="users" [loggedUser]="loggedUser" (onSuccessfulLogin)="userLogged()"></app-login>
+<app-header *ngIf="usersService.isUserLogged"></app-header>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
