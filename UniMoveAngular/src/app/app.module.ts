@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app.routes';
 import { UsersService } from './users/users.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AppService } from './app.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     BrowserModule, FormsModule, HttpModule, routing
   ],
-  providers: [UsersService],
+  providers: [UsersService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

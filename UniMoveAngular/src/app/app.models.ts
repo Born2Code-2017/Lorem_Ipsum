@@ -6,4 +6,14 @@ export class User{
     facolta: string;
     partecipa: number[];
     creati: number[];
+};
+export class Event{
+    titolo: string;
+    categoria: number;
+    descrizione: string;
+    immagine: string;
+    data: string;
+    luogo: string;
+    owner: User;
+    partecipanti: number[];
 }
