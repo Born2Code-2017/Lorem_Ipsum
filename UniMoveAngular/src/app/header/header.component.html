@@ -1,8 +1,8 @@
 <div class="headerContainer">
     <div class="row">
         <div class="col-md-2" name="me">
-            <img src={{loggedUser.fotoProfilo}}> <!-- binding non funzionante -->
-            <a href="/login" name="logout">Logout</a>
+            <img src={{loggedUser.fotoProfilo}}>
+            <a name="logout" (click)="logout()">Logout</a>
         </div>
         <div class="col-md-4 col-md-offset-2 nav">
             <div class="col-md-12 h1">

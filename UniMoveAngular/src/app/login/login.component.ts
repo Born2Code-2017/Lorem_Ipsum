@@ -21,10 +21,18 @@ export class LoginComponent {
         private router: Router,
         private usersService: UsersService
     ) {
-        this.username = '';
-        this.password = '';
-        usersService.loggedUser = new User();
-        this.isLoginFailed = false;
+        
+        if(JSON.parse(localStorage.getItem('loggedUser'))){
+            this.usersService.loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+            this.usersService.isUserLogged = true;
+            this.router.navigateByUrl('/home');
+        }
+        else{
+            this.username = '';
+            this.password = '';
+            usersService.loggedUser = new User();
+            this.isLoginFailed = false;
+        }
     }
 
     login(){
@@ -33,6 +41,7 @@ export class LoginComponent {
                 this.isLoginFailed = false;
                 this.usersService.loggedUser = user;
                 this.usersService.isUserLogged = true;
+                localStorage.setItem('loggedUser',JSON.stringify(this.usersService.loggedUser));
                 this.router.navigateByUrl('/home');
                 break;
             }

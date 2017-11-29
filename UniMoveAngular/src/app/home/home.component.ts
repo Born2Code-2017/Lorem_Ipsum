@@ -13,6 +13,6 @@ export class HomeComponent{
         private userService: UsersService,
         private router: Router
     ) {
-        if(!this.userService.loggedUser) this.router.navigateByUrl('/login');
+        if(!this.userService.isUserLogged) this.router.navigateByUrl('/login');
     }
 }
