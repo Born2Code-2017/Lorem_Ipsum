@@ -1,8 +1,9 @@
+app-header, app-sidebar, app-events, router-outlet{
+    padding: 0;
+}
 app-header{
     height: 20vh;
-    margin: 0;
 }
-div.bodyContainer{
+app-sidebar, app-events, router-outlet{
     height: 80vh;
-    margin: 0;
 }

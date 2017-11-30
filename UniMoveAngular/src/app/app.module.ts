@@ -12,12 +12,13 @@ import { routing } from './app.routes';
 import { UsersService } from './users/users.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppService } from './app.service';
+import { EventsComponent } from './events/events.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, HeaderComponent, HomeComponent,
-    SidebarComponent
+    SidebarComponent, EventsComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing

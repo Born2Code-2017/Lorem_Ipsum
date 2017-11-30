@@ -10,17 +10,27 @@ export class AppService{
 
     private apiUrl: string;
     public events: Event[];
+    public lastEvent: number;
     public filter: number;
 
     constructor(private http: Http){
         this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove/events';
-        this.updateEvents()
-            .subscribe(arg => this.events = arg);
+        this.updateEvents().subscribe(arg => this.events = arg);
+        this.getLastEvent().subscribe(arg => this.lastEvent = arg);
     }
 
     public updateEvents(){
         return this.http.get(this.apiUrl + '.json')
-            .map((res: Response) => res.json())
+            .map((res: Response) => res.json());
+    }
+
+    public getLastEvent(){
+        return this.http.get(this.apiUrl + 'lastEvent.json')
+            .map((res: Response) => res.json());
+    }
+
+    public setLastEvent(){
+        this.http.put(this.apiUrl + 'lastEvent.json', this.lastEvent);
     }
 
     public setFilter(id: number){

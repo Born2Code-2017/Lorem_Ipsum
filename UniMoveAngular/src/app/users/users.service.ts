@@ -15,7 +15,7 @@ export class UsersService{
     constructor(private http: Http){
         this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove/users.json';
         this.updateUsers()
-            .subscribe(arg => this.users = arg);
+            .subscribe(arg => { this.users = arg; console.log(arg); console.log(this.users) } );
         this.loggedUser = new User();
     }
 
