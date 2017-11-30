@@ -20,11 +20,4 @@ export class HeaderComponent {
         this.loggedUser = this.usersService.loggedUser;
         console.log(this.loggedUser);
     }
-
-    logout(){
-        this.usersService.loggedUser = null;
-        this.usersService.isUserLogged = false;
-        localStorage.removeItem('loggedUser');
-        this.router.navigateByUrl('/login');
-    }
 }

@@ -1,4 +1,6 @@
 <app-header *ngIf="usersService.isUserLogged" class="col-md-12"></app-header>
-<app-sidebar class="col-md-2"></app-sidebar>
-<app-events class="col-md-3"></app-events>
-<router-outlet class="col-md-7"></router-outlet>
+<app-sidebar *ngIf="usersService.isUserLogged" class="col-md-2"></app-sidebar>
+<app-events *ngIf="usersService.isUserLogged" class="col-md-3"></app-events>
+<div class="mainContainer col-md-7">
+    <router-outlet></router-outlet>
+</div>
