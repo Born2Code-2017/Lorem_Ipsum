@@ -12,7 +12,6 @@ export class ProfileComponent{
         private userService: UsersService,
         private router: Router
     ) {
-        console.log(this.userService);
-        //if(!this.userService.isUserLogged) this.router.navigateByUrl('/login');
+        if(!this.userService.isUserLogged) this.router.navigateByUrl('/login');
     }
 }
