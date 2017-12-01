@@ -1,0 +1,35 @@
+<div id="profileContainer">
+    <h1>PROFILO</h1>
+    <hr>
+    <section id="main">
+        <div>
+            <img src="{{user.fotoProfilo}}" alt="Profilo">
+            <p>
+                <button>Modifica</button>
+            </p>
+        </div>
+        <div>
+            <div class="info">
+                <h3>Nome</h3>
+                <p>{{user.username}}</p>
+            </div>
+            <div class="info">
+                <h3>Facoltà</h3>
+                <p>
+                    <input type="text" value="{{user.facolta}}">
+                </p>
+            </div>
+            <div class="info">
+                <h3>Cognome</h3>
+                <p></p>
+            </div>
+            <div class="info">
+                <h3>Data di Nascita</h3>
+                <p>{{user.dataNascita}}</p>
+            </div>
+        </div>
+        <div>
+            <button>Salva</button>
+        </div>
+    </section>
+</div>
