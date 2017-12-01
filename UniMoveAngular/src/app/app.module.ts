@@ -14,12 +14,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppService } from './app.service';
 import { EventsComponent } from './events/events.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FaqComponent } from './faq/faq.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, HeaderComponent, HomeComponent,
-    SidebarComponent, EventsComponent, ProfileComponent
+    SidebarComponent, EventsComponent, ProfileComponent, FaqComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing

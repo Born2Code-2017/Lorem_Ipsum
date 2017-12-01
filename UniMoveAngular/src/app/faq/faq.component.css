@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+}
+
+hr{
+
+}
+
+body{
+    background-color: white;
+}
+
+#main{
+    overflow-y: scroll;
+    padding: 2%;
+    height: 63vh;
+}
+
+div{
+    overflow: hidden;
+    margin: 0.8% 2% 0.8% 2%;
+    padding: 0 2% 0 2%;
+    background-color: purple;
+}
+
+.title{
+    font-size: 24px;
+}
+
+.description{
+    font-size: small;
+}
+
+div > .description span:nth-child(1){
+    color:pink;
+}
+
+div > .description span:nth-child(2){
+    color:purple;
+}
+
+div > .description span:nth-child(3){
+    color:rgb(0, 1, 85);
+}
+
+div > .description span:nth-child(4){
+    color:rgb(230, 192, 255);
+}

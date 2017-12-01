@@ -6,4 +6,5 @@ app-header{
 }
 app-sidebar, app-events, [class*="mainContainer"]{
     height: 80vh;
+    overflow: hidden;
 }
