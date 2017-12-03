@@ -38,7 +38,10 @@ var app = {
         var strLI = '';
         for (var i=0;i<app.users.length;i++)
             strLI += '<li class="users" data-id="' + i +
-            '">Username: ' + app.users[i].username +
+            '">User ID: ' + app.users[i].id +
+            '<br>Username: ' + app.users[i].username +
+            '<br>Nome: ' + app.users[i].name +
+            '<br>Cognome: ' + app.users[i].surname +
             '<br>Password: ' + app.users[i].password +
             '<br>Data di nascita: ' + app.users[i].dataNascita +
             '<br>Url foto profilo: ' + app.users[i].fotoProfilo +
@@ -51,7 +54,10 @@ var app = {
     
     addUser: function(){
         let newUser = new User();
+        newUser.id = $('#userID').val();
         newUser.username = $('#user').val();
+        newUser.name = $('#name').val();
+        newUser.surname = $('#surname').val();
         newUser.password = $('#password').val();
         newUser.dataNascita = $('#birth').val();
         newUser.fotoProfilo = $('#photo').val();
@@ -74,7 +80,10 @@ var app = {
     
     viewUser: function(){
         app.currentUser = $(this).data('id');
+        $('#userID').val(app.users[app.currentUser].id);
         $('#user').val(app.users[app.currentUser].username);
+        $('#name').val(app.users[app.currentUser].name);
+        $('#surname').val(app.users[app.currentUser].surname);
         $('#password').val(app.users[app.currentUser].password);
         $('#birth').val(app.users[app.currentUser].dataNascita);
         $('#photo').val(app.users[app.currentUser].fotoProfilo);
@@ -97,12 +106,6 @@ var app = {
         if(app.currentUser !== null){
             app.users.splice(app.currentUser, 1);
             app.showUsers();
-            /*var url = app.baseurl + 'loremipsum/unimove/users/' + app.currentUser + '.json';
-            $.ajax({
-                type: 'DELETE',
-                url: url,
-                contentType: "application/json",
-            }).done(app.onPutSuccess).fail(app.onPutError);*/
             app.putUsers();
             app.clearFields();
         }
@@ -115,7 +118,10 @@ var app = {
     },
 
     clearFields: function(){
+        $('#userID').val('');
         $('#user').val('');
+        $('#name').val('');
+        $('#surname').val('');
         $('#password').val('');
         $('#birth').val('');
         $('#photo').val('');
@@ -124,17 +130,6 @@ var app = {
         $('#creati').val('');
         app.currentUser = null;
     },
-    
-    /*putUser: function(n){
-        var jsondata = JSON.stringify(app.users[n]);
-        var url = app.baseurl + 'loremipsum/unimove/users/' + n + '.json';
-        $.ajax({
-            type: 'POST',
-            url: url,
-            contentType: "application/json",
-            data: jsondata
-        }).done(app.onPutSuccess).fail(app.onPutError);
-    },*/
 
     putUsers: function(){
         var jsondata = JSON.stringify(app.users);
@@ -173,7 +168,10 @@ var app = {
 };
 
 User = function(){
+    id = '';
     username = '';
+    nome = '';
+    cognome = '';
     password = '';
     dataNascita = '';
     fotoProfilo = '';

@@ -18,6 +18,5 @@ export class HeaderComponent {
         private usersService: UsersService
     ){
         this.loggedUser = this.usersService.loggedUser;
-        console.log(this.loggedUser);
     }
 }

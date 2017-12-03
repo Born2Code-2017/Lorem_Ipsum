@@ -42,4 +42,13 @@ export class UsersService{
         this.isUserLogged = false;
         this.router.navigateByUrl('/login');
     }
+
+    public getUserFromID(id: number): User{
+        for (var user of this.users){
+            if(user.id == id){
+                return user;
+            }
+        }
+        return null;
+    }
 }

@@ -1,0 +1,44 @@
+<div class="newEventContainer">
+
+    <label for="titolo">Titolo:</label>
+    <input required #titolo2="ngModel" [(ngModel)]="event.titolo" class="form form-control" type="text" id="titolo" name="titolo" placeholder="titolo...">
+    <div [hidden]="titolo2.valid || titolo2.pristine" class="alert alert-danger">
+        titolo is required
+    </div>
+
+    <label for="category">Categoria</label>
+    <select required #category2="ngModel" [(ngModel)]="event.categoria" class="form form-control" name="category" id="category">
+        <option value="2">Aperitivi</option>
+        <option value="3">Convention</option>
+        <option value="4">Formazione</option>
+        <option value="5">Dibattiti</option>
+    </select>
+    <div [hidden]="category2.valid || category2.pristine" class="alert alert-danger">
+        Category is required
+    </div>
+
+    <label for="start">Start time:</label>
+    <input required #start2="ngModel" [(ngModel)]="event.start" class="form form-control" type="time" id="start" name="start">
+    <div [hidden]="start2.valid || start2.pristine" class="alert alert-danger">
+        Start time is required
+    </div>
+    
+    <label for="end">End time:</label>
+    <input required #end2="ngModel" [(ngModel)]="event.end" class="form form-control" type="time" id="end" name="end">
+    <div [hidden]="end2.valid || end2.pristine" class="alert alert-danger">
+        End time is required
+    </div>
+
+    <label for="descrizione">Descrizione:</label>
+    <input [(ngModel)]="event.descrizione" class="form form-control" type="text" id="descrizione" name="descrizione" placeholder="descrizione...">
+
+
+    <button type="button" class="btn btn-danger" (click)="annulla()">
+        <i class="glyphicon glyphicon-cancel"></i>Cancella
+    </button>
+
+    <button type="button" class="btn btn-default" (click)="save()">
+        <i class="glyphicon glyphicon-save"></i>Salva
+    </button>
+
+</div>
