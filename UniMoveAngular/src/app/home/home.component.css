@@ -1,6 +1,13 @@
-.homeContainter{
+#homeContainter{
     width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 22%;
+    color: #9A84AE;
+    font-size: 20px;
+    font-family: lato;
+    font-weight: bolder;
 }
-app-sidebar{
-    height: 100%;
+p{
+    padding-top: 2%;
 }
