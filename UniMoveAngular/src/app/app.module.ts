@@ -11,17 +11,29 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app.routes';
 import { UsersService } from './users/users.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AppService } from './shared/app.service';
+import { EventsComponent } from './events/events.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FaqComponent } from './faq/faq.component';
+import { NewEventComponent } from './newEvent/newEvent.component';
+import { EventComponent } from './events/event.component';
+import { ValuesPipe } from './shared/values.pipe';
+import { CategoryDirective } from './shared/categories.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent, LoginComponent, HeaderComponent, HomeComponent,
-    SidebarComponent
+    SidebarComponent, EventsComponent,
+    ProfileComponent, FaqComponent,
+    NewEventComponent, EventComponent,
+    ValuesPipe,
+    CategoryDirective
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing
   ],
-  providers: [UsersService],
+  providers: [UsersService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

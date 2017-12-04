@@ -1,0 +1,35 @@
+#profileContainer{
+    height: 100%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#main{
+    overflow-y: scroll;
+    padding: 2%;
+    height: 63vh;
+}
+
+h3{
+    display: inline-block;
+}
+
+img {
+    width: 318px;
+    height: 205px;/*Provvisori*/
+    border-radius: 50px;
+    margin-bottom: 2%;
+}
+
+.info{
+    width: 50vh;
+    margin: 0;
+    padding: 0 12vh 0 12vh;
+    display: inline-block;
+    text-align: left;
+}
+
+#main > div:last-child{
+    padding-right: 16vh;
+    text-align: right;
+}

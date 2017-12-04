@@ -1,8 +1,10 @@
+app-header, app-sidebar, app-events, [class*="mainContainer"]{
+    padding: 0;
+}
 app-header{
     height: 20vh;
-    margin: 0;
 }
-div.bodyContainer{
+app-sidebar, app-events, [class*="mainContainer"]{
     height: 80vh;
-    margin: 0;
+    overflow: hidden;
 }

@@ -1,0 +1,10 @@
+<div class="eventComponent" (click)="setAsActive()" style="padding: 0">
+    <div class="dati col-md-8" style="text-align: left; padding: 0">
+        {{event.titolo}}
+        <br>
+        {{event.start}} - {{event.end}}
+    </div>
+    <div class="owner col-md-4" style="text-align: right; padding: 0">
+        <img class="img-circle" src={{getOwnerPhoto()}} width="40px" height="40px">
+    </div>
+</div>

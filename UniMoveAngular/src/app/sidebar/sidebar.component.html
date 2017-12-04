@@ -1,13 +1,13 @@
 <div class="sidebarContainer">
-    <button type="button" class="btn btn-default col-md-8 col-md-offset-2">
+    <button type="button" class="btn btn-default col-md-8 col-md-offset-2" (click)="createNewEvent()">
         <i class="glyphicon glyphicon-add"><label>Proponi</label></i>
     </button>
     <ul class="col-md-12">
-        <li>Eventi Confermati</li>
-        <li>Eventi Creati</li>
-        <li class="aperitivi">Aperitivi</li>
-        <li class="convention">Convention</li>
-        <li class="formazione">Formazione</li>
-        <li class="dibattiti">Dibattiti</li>
+        <li (click)="appService.setFilter(0)">Eventi Confermati</li>
+        <li (click)="appService.setFilter(1)">Eventi Creati</li>
+        <li class="aperitivi" (click)="appService.setFilter(2)">Aperitivi</li>
+        <li class="convention" (click)="appService.setFilter(3)">Convention</li>
+        <li class="formazione" (click)="appService.setFilter(4)">Formazione</li>
+        <li class="dibattiti" (click)="appService.setFilter(5)">Dibattiti</li>
     </ul>
 </div>

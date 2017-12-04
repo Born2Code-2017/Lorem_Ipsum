@@ -1,22 +1,22 @@
 <div class="headerContainer">
     <div class="row">
         <div class="col-md-2" name="me">
-            <img src={{loggedUser.fotoProfilo}}> <!-- binding non funzionante -->
-            <a href="/login" name="logout">Logout</a>
+            <img src={{loggedUser.fotoProfilo}}>
+            <a name="logout" (click)="usersService.logout()">Logout</a>
         </div>
         <div class="col-md-4 col-md-offset-2 nav">
             <div class="col-md-12 h1">
-                <a href="/home" name="UniMove"><h1 class="red"><span class="yellow">Uni</span>Move</h1></a>
+                <a routerLink="/home" name="UniMove"><h1 class="red"><span class="yellow">Uni</span>Move</h1></a>
             </div>
             <nav class="col-md-12" name="menu">
                 <div class="col-md-4 home">
-                    <a href="/home" name="home">Home</a>
+                    <a routerLink="/home" name="home">Home</a>
                 </div>
                 <div class="col-md-4 profile">
-                    <a href="/profile" name="profilo">Profilo</a>
+                    <a routerLink="/profile" name="profilo">Profilo</a>
                 </div>
                 <div class="col-md-4 FAQ">
-                    <a href="/faq" name="faq">FAQ</a>
+                    <a routerLink="/faq" name="faq">FAQ</a>
                 </div>
             </nav>
         </div>
