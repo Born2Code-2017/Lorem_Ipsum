@@ -1,10 +1,10 @@
-# Lorem Ipsum
+# UniMove
 
 This is a simple web-app project about events and meetups for a students group.
 
 ## Getting Started
 
-You can take a copy of this project and to make a student event.
+You can take a copy of this project and to make a student event. What you need is in folder: "UniMoveAngular".
 
 ### Prerequisites
 
