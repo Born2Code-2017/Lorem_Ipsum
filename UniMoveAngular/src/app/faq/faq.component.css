@@ -1,9 +1,31 @@
+*{
+    font-family: lato;
+    font-weight: regular;
+    color: #114E54;
+}
+
 h1{
+    font-family: Rosario;
     text-align: center;
+    font-weight: bold;
+    color: #B393DA;
+    font-size: 30px;
+}
+
+.title{
+    color: #114E54;
+    font-size: 20px;
+}
+
+.description{
+    color: #95989A;
+    font-size: 16px;
 }
 
 hr{
-
+    border: 0.5px solid #114E54;
+    width: 369.6px;
+    height: 0.5px;
 }
 
 #faqContainer{
@@ -19,9 +41,11 @@ hr{
 
 #main > div{
     overflow: hidden;
-    margin: 0.8% 2% 0.8% 2%;
-    padding: 0 2% 0 2%;
-    background-color: #CA9DC5;
+    margin: 2% 2% 3% 2%;
+    padding: 1% 2% 2% 2%;
+    background-color: #e9dee7;
+    border-radius: 4px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
 .title{

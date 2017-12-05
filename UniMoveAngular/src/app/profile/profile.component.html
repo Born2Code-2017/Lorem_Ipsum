@@ -5,13 +5,13 @@
         <div>
             <img src="{{user.fotoProfilo}}" alt="Profilo">
             <p>
-                <button>Modifica</button>
+                <button type="button" class="btn btn-warning">Modifica</button>
             </p>
         </div>
         <div>
             <div class="info">
                 <h3>Nome</h3>
-                <p>{{user.username}}</p>
+                <p>{{user.nome}}</p>
             </div>
             <div class="info">
                 <h3>Facoltà</h3>
@@ -21,7 +21,7 @@
             </div>
             <div class="info">
                 <h3>Cognome</h3>
-                <p></p>
+                <p>{{user.cognome}}</p>
             </div>
             <div class="info">
                 <h3>Data di Nascita</h3>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div>
-            <button>Salva</button>
+            <button type="button" class="btn btn-success">Salva</button>
         </div>
     </section>
 </div>

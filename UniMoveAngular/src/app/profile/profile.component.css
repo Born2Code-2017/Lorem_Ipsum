@@ -1,6 +1,26 @@
+*{
+    font-family: lato;
+    font-weight: regular;
+    color: #114E54;
+}
+
+h1{
+    font-family: Rosario;
+    text-align: center;
+    font-weight: bold;
+    color: #B393DA;
+    font-size: 30px;
+}
+
+hr{
+    border: 0.5px solid #114E54;
+    width: 369.6px;
+    height: 0.5px;
+}
+
 #profileContainer{
-    height: 100%;
     background-color: #ffffff;
+    height: 100%;
     text-align: center;
 }
 
@@ -16,9 +36,24 @@ h3{
 
 img {
     width: 318px;
-    height: 205px;/*Provvisori*/
-    border-radius: 50px;
+    height: 205px;
+    border-radius: 70px;
     margin-bottom: 2%;
+}
+
+.btn-warning{
+    color: #ffffff;
+    width: 270.42px;
+    height: 26.83px;
+    font-size: 17px;
+    padding: 0 0 1% 0;
+}
+
+.btn-success{
+    color: #ffffff;
+    width: 152px;
+    height: 58.69px;
+    font-size: 20px;
 }
 
 .info{
