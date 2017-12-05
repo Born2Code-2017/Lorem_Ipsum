@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AppService } from '../shared/app.service';
 import { Router } from '@angular/router';
+import { Event } from '../app.models';
+import { UsersService } from '../users/users.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -11,17 +13,18 @@ import { Router } from '@angular/router';
 export class SidebarComponent {
     constructor(
         private appService: AppService,
+        private userService: UsersService,
         private router: Router
     ) { }
 
     createNewEvent(){
-        if(!this.appService.workingOnAnEvent){
-            this.appService.workingOnAnEvent = true;
+        if(!this.appService.activeEvent){
+            this.appService.activeEvent = new Event();
             this.appService.lastEvent++;
+            this.appService.activeEvent = new Event();
             this.appService.setLastEvent()
                 .subscribe(arg =>{
-                    this.appService.activeEvent = this.appService.lastEvent;
-                    this.router.navigateByUrl('/newEvent');
+                    this.router.navigateByUrl('/event');
                 });
         }
     }

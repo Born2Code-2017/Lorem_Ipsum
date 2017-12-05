@@ -16,6 +16,6 @@ export class HomeComponent{
         private router: Router
     ) {
         if(!this.userService.isUserLogged) this.router.navigateByUrl('/login');
-        this.appService.workingOnAnEvent = false;
+        this.appService.activeEvent = null;
     }
 }

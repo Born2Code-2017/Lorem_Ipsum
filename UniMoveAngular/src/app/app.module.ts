@@ -15,7 +15,7 @@ import { AppService } from './shared/app.service';
 import { EventsComponent } from './events/events.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FaqComponent } from './faq/faq.component';
-import { NewEventComponent } from './newEvent/newEvent.component';
+import { EventDetailsComponent } from './eventDetails/eventDetails.component';
 import { EventComponent } from './events/event.component';
 import { ValuesPipe } from './shared/values.pipe';
 import { CategoryDirective } from './shared/categories.directive';
@@ -26,7 +26,7 @@ import { CategoryDirective } from './shared/categories.directive';
     AppComponent, LoginComponent, HeaderComponent, HomeComponent,
     SidebarComponent, EventsComponent,
     ProfileComponent, FaqComponent,
-    NewEventComponent, EventComponent,
+    EventDetailsComponent, EventComponent,
     ValuesPipe,
     CategoryDirective
   ],

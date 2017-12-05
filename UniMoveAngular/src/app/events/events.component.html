@@ -1,14 +1,17 @@
 <div class="eventsContainer">
     <h1 class="col-md-12">Eventi</h1>
     <div class="events col-md-12">
-        <div class="event col-md-12" *ngFor="let item of events | values">
+        <div class="date col-md-12" *ngFor="let item of events">
             <div class="col-md-12" *ngIf="item" style="padding: 0">
-                <app-event
-                    class="col-md-12"
-                    [event]="item"
-                    style="padding: 10px; margin: 5px 0; border-radius: 3px"
-                    category={{item.categoria}}>
-                </app-event>
+                <p class="col-md-12" style="text-align: center">{{item.date}}</p>
+                <ng-container class="event col-md-12" *ngFor="let event of item.events">                        
+                    <app-event
+                        class="col-md-12"
+                        [event]="event"
+                        style="padding: 10px; margin: 5px 0; border-radius: 3px"
+                        category={{event.categoria}}>
+                    </app-event>
+                </ng-container>
             </div>
         </div>
     </div>

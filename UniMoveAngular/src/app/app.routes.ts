@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FaqComponent } from './faq/faq.component';
-import { NewEventComponent } from './newEvent/newEvent.component';
+import { EventDetailsComponent } from './eventDetails/eventDetails.component';
 
 const appRoutes: Routes = [
     {
@@ -24,8 +24,8 @@ const appRoutes: Routes = [
         component: FaqComponent
     },
     {
-        path: 'newEvent',
-        component: NewEventComponent
+        path: 'event',
+        component: EventDetailsComponent
     },
     {
         path: '',
@@ -35,4 +35,4 @@ const appRoutes: Routes = [
 ]
 
 export const routing: ModuleWithProviders =
-    RouterModule.forRoot(appRoutes);
+    RouterModule.forRoot(appRoutes, {useHash: true});

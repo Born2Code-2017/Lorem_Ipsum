@@ -5,3 +5,7 @@
 .eventsContainer h1{
     text-align: center;
 }
+div.events{
+    height: 90%;
+    overflow-y: scroll;
+}

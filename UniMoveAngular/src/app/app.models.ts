@@ -22,4 +22,8 @@ export class Event{
     luogo: string;
     owner: number;
     partecipanti: number[];
+};
+export class DailyEvents{
+    date: string;
+    events: Event[];
 }

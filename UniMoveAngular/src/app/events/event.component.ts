@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Event } from '../app.models';
 import { UsersService } from '../users/users.service';
+import { AppService } from '../shared/app.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-event',
@@ -13,7 +15,9 @@ export class EventComponent {
     event: Event;
 
     constructor(
-        private usersService: UsersService
+        private usersService: UsersService,
+        private appService: AppService,
+        private router: Router
     ) {
         this.event = new Event();
     }
@@ -25,5 +29,10 @@ export class EventComponent {
         else{
             return '';
         }
+    }
+
+    setAsActive(){
+        this.appService.activeEvent = this.event;
+        this.router.navigateByUrl('/event');
     }
 }
