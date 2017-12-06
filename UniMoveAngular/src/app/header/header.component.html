@@ -7,13 +7,13 @@
         </div>
         <ul class="nav navbar-nav">
             <li>
-                <a routerLink="/home" name="home">Home</a>
+                <a [routerLinkActive]="['active']" [routerLink]="['/home']" name="home">Home</a>
             </li>
             <li>
-                <a routerLink="/faq" name="faq">FAQ</a>
+                <a [routerLinkActive]="['active']" [routerLink]="['/faq']" name="faq">FAQ</a>
             </li>
             <li>
-                <a routerLink="/profile" name="profilo">Profilo</a>
+                <a [routerLinkActive]="['active']" [routerLink]="['/profile']" name="profilo">Profilo</a>
             </li>
         </ul>
         <div id="logout">

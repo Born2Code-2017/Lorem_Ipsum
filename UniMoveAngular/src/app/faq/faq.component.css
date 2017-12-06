@@ -34,9 +34,9 @@ hr{
 }
 
 #main{
-    overflow-y: scroll;
+    overflow-y: hidden;
     padding: 2%;
-    height: 63vh;
+    height: 85%;
 }
 
 #main > div{
@@ -50,6 +50,7 @@ hr{
 
 .title{
     font-size: 24px;
+    height: 10%;
 }
 
 .description{

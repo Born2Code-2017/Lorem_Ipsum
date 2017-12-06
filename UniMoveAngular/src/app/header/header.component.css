@@ -8,6 +8,11 @@ div .nav-item{
    display: inline-block; 
 }
 
+.nav>li>a[class="active"], .nav>li>a:hover, .nav>li>a:focus{
+    color: #FF90A2;
+    background-color: transparent;
+}
+
 ul{
     list-style-type: none;
     padding-top:1%;
