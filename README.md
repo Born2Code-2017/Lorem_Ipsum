@@ -14,6 +14,10 @@ You need an editor (We'd recommend: Visual Studio Code), nodejs and angularclì.
 
 If you have all prerequisistes, you can to launch with: ng serve -o.
 
+## Login
+
+You can choose a Personas for login, between: Aurora, Luca, Andrea; and you write in password whatever you want, because it is necessary only the name of one Persona (rem: Aurora, Luca, Andrea). And... Enjoy your login in Unimove!  
+
 ## Built With
 
 * [Angular](https://angular.io/) - The web framework used
