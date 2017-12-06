@@ -1,14 +1,27 @@
 <div class="headerContainer">
-    <div>
-        <img src="" alt="UniMove">
-    </div>
-    <nav>
-        <a routerLink="/home" name="home">Home</a>
-        <a routerLink="/faq" name="faq">FAQ</a>
-        <a routerLink="/profile" name="profilo">Profilo</a>
-    </nav>
-    <div>
-        <img id="photoprofile" src={{loggedUser.fotoProfilo}}>
-        <br><a name="logout" (click)="usersService.logout()">Logout</a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/home">
+                <img src="assets\img\unimove.png" alt="UniMove">
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a routerLink="/home" name="home">Home</a>
+            </li>
+            <li>
+                <a routerLink="/faq" name="faq">FAQ</a>
+            </li>
+            <li>
+                <a routerLink="/profile" name="profilo">Profilo</a>
+            </li>
+        </ul>
+        <div id="logout">
+            <a routerLink="/profile" name="profilo">
+                <img id="photoprofile" src={{loggedUser.fotoProfilo}}>
+            </a>
+            <br>
+            <a name="logout" (click)="usersService.logout()">Logout</a>
+        </div>
     </div>
 </div>
