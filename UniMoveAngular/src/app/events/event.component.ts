@@ -32,7 +32,7 @@ export class EventComponent {
     }
 
     setAsActive(){
-        this.appService.activeEvent = this.event;
         this.router.navigateByUrl('/event');
+        this.appService.updateActiveEvent(this.event);
     }
 }

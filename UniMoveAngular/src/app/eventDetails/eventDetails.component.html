@@ -1,37 +1,38 @@
 <div class="eventDetailsContainer">
 
-    <ng-container class="viewEvent" *ngIf="appService.activeEvent.owner && appService.activeEvent.owner !== userService.loggedUser.id">
+    <ng-container class="viewEvent" *ngIf="activeEvent.owner && activeEvent.owner !== userService.loggedUser.id">
         <h1>Dettagli evento</h1>
-        <label>Titolo: {{appService.activeEvent.titolo}}</label><br>
+        <label>Titolo: {{activeEvent.titolo}}</label><br>
         <label>Organizzatore: {{owner.name}} {{owner.surname}}</label><br>
-        <label>Categoria: {{appService.activeEvent.categoria}}</label><br>
-        <label>Descrizione: {{appService.activeEvent.descrizione}}</label><br>
-        <label>Data: {{appService.activeEvent.data}}</label><br>
-        <label>Ora d'inizio: {{appService.activeEvent.start}}</label><br>
-        <label>Termina alle: {{appService.activeEvent.end}}</label><br>
-        <label>Luogo: {{appService.activeEvent.luogo}}</label><br>
+        <label>Categoria: {{activeEvent.categoria}}</label><br>
+        <label>Descrizione: {{activeEvent.descrizione}}</label><br>
+        <label>Data: {{activeEvent.data}}</label><br>
+        <label>Ora d'inizio: {{activeEvent.start}}</label><br>
+        <label>Termina alle: {{activeEvent.end}}</label><br>
+        <label>Luogo: {{activeEvent.luogo}}</label><br>
+        <label>Partecipanti: {{partecipanti}}</label><br>
         <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
             <i class="glyphicon glyphicon-menu-left"></i> Indietro
         </button>
-        <button type="button" class="btn btn-default" (click)="save()">
+        <button type="button" class="btn btn-default" (click)="partecipate()" *ngIf="!isUserGoingToPartecipate">
             <i class="glyphicon glyphicon-ok-circle"></i> Partecipa
         </button>
     </ng-container>
 
 
-    <ng-container class="modEvent" *ngIf="!appService.activeEvent.owner || appService.activeEvent.owner === userService.loggedUser.id">
-        <h1 *ngIf="appService.activeEvent.owner === userService.loggedUser.id">Modifica evento</h1>
-        <h1 *ngIf="!appService.activeEvent.owner">Nuovo evento</h1>
+    <ng-container class="modEvent" *ngIf="!activeEvent.owner || activeEvent.owner === userService.loggedUser.id">
+        <h1 *ngIf="activeEvent.owner === userService.loggedUser.id">Modifica evento</h1>
+        <h1 *ngIf="!activeEvent.owner">Nuovo evento</h1>
 
 
         <label for="titolo">Titolo:</label>
-        <input required #titolo2="ngModel" [(ngModel)]="appService.activeEvent.titolo" class="form form-control" type="text" id="titolo" name="titolo" placeholder="titolo...">
+        <input required #titolo2="ngModel" [(ngModel)]="activeEvent.titolo" class="form form-control" type="text" id="titolo" name="titolo" placeholder="titolo...">
         <div [hidden]="titolo2.valid || titolo2.pristine" class="alert alert-danger">
             titolo is required
         </div>
 
         <label for="category">Categoria</label>
-        <select required #category2="ngModel" [(ngModel)]="appService.activeEvent.categoria" class="form form-control" name="category" id="category">
+        <select required #category2="ngModel" [(ngModel)]="activeEvent.categoria" class="form form-control" name="category" id="category">
             <option value=2>Aperitivi</option>
             <option value=3>Convention</option>
             <option value=4>Formazione</option>
@@ -42,28 +43,28 @@
         </div>
         
         <label for="date">Data:</label>
-        <input required #date2="ngModel" [(ngModel)]="appService.activeEvent.data" class="form form-control" type="date" id="date" name="date">
+        <input required #date2="ngModel" [(ngModel)]="activeEvent.data" class="form form-control" type="date" id="date" name="date">
         <div [hidden]="date2.valid || date2.pristine" class="alert alert-danger">
             Date is required
         </div>
 
         <label for="start">Start time:</label>
-        <input required #start2="ngModel" [(ngModel)]="appService.activeEvent.start" class="form form-control" type="time" id="start" name="start">
+        <input required #start2="ngModel" [(ngModel)]="activeEvent.start" class="form form-control" type="time" id="start" name="start">
         <div [hidden]="start2.valid || start2.pristine" class="alert alert-danger">
             Start time is required
         </div>
         
         <label for="end">End time:</label>
-        <input required #end2="ngModel" [(ngModel)]="appService.activeEvent.end" class="form form-control" type="time" id="end" name="end">
+        <input required #end2="ngModel" [(ngModel)]="activeEvent.end" class="form form-control" type="time" id="end" name="end">
         <div [hidden]="end2.valid || end2.pristine" class="alert alert-danger">
             End time is required
         </div>
 
         <label for="descrizione">Descrizione:</label>
-        <input [(ngModel)]="appService.activeEvent.descrizione" class="form form-control" type="text" id="descrizione" name="descrizione" placeholder="descrizione...">
+        <input [(ngModel)]="activeEvent.descrizione" class="form form-control" type="text" id="descrizione" name="descrizione" placeholder="descrizione...">
 
 
-        <ng-container *ngIf="appService.activeEvent.owner === userService.loggedUser.id">
+        <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
             <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
                 <i class="glyphicon glyphicon-menu-left"></i> Indietro
             </button>
@@ -73,13 +74,13 @@
             </button>
         </ng-container>
 
-        <button type="button" class="btn btn-danger" (click)="annulla()" *ngIf="!appService.activeEvent.owner">
+        <button type="button" class="btn btn-danger" (click)="annulla()" *ngIf="!activeEvent.owner">
             <i class="glyphicon glyphicon-remove-circle"></i> Annulla creazione
         </button>
 
         <button type="button" class="btn btn-default" (click)="save()">
-            <ng-container *ngIf="appService.activeEvent.owner === userService.loggedUser.id"><i class="glyphicon glyphicon-refresh"></i> Aggiorna evento</ng-container>
-            <ng-container *ngIf="!appService.activeEvent.owner"><i class="glyphicon glyphicon-save"></i> Proponi evento</ng-container>
+            <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id"><i class="glyphicon glyphicon-refresh"></i> Aggiorna evento</ng-container>
+            <ng-container *ngIf="!activeEvent.owner"><i class="glyphicon glyphicon-save"></i> Proponi evento</ng-container>
         </button>
 
     </ng-container>

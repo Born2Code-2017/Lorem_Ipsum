@@ -17,26 +17,29 @@ export class UsersService{
         private http: Http,
         private router: Router
     ){
-        this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove/users.json';
+        this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove/users';
         this.updateUsers()
             .subscribe(arg =>{
                 this.users = arg;
-                console.log(arg);
             });
         this.loggedUser = new User();
         this.isUserLogged = false;
     }
 
     private updateUsers(){
-        return this.http.get(this.apiUrl)
+        return this.http.get(this.apiUrl + '.json')
             .map((res: Response) => res.json())
     }
     
     public login(user: User){
-        this.loggedUser = user;
-        localStorage.setItem('loggedUser',JSON.stringify(this.loggedUser));
-        this.isUserLogged = true;
-        this.router.navigateByUrl('/home');
+        this.http.get(this.apiUrl + '/' + (user.id - 1) + '.json')
+            .map((res: Response) => res.json())
+            .subscribe(arg =>{
+                this.loggedUser = arg;
+            localStorage.setItem('loggedUser',JSON.stringify(this.loggedUser));
+            this.isUserLogged = true;
+            this.router.navigateByUrl('/home');
+            });
     }
 
     public logout(){
@@ -53,5 +56,10 @@ export class UsersService{
             }
         }
         return null;
+    }
+
+    public updateUser(){
+        return this.http.put(this.apiUrl + '/' + (this.loggedUser.id - 1) + '.json', this.loggedUser)
+            .map((res: Response) => res.json());
     }
 }

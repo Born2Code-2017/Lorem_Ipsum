@@ -21,5 +21,6 @@ export class EventsComponent {
             arg =>{
                 this.events = arg;
         })
+        this.appService.updateEvents();
     }
 }

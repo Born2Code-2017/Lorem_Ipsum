@@ -12,7 +12,8 @@ export class AppService{
 
     private apiUrl: string;
     public events: Subject<any>;
-    public activeEvent: Event;
+    public activeEvent: Subject<any>;
+    public lastActive: Event; // Useful in case of a activeEvent value change during routing
     public lastEvent: number;
 
     private privateFilter: number;
@@ -20,8 +21,8 @@ export class AppService{
 
     constructor(private http: Http){
         this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove';
-        this.activeEvent = null;
         this.events = new Subject();
+        this.activeEvent = new Subject();
         this.filter = new Subject();
         this.updateEvents();
         this.getLastEvent().subscribe(arg => {
@@ -31,17 +32,25 @@ export class AppService{
                 this.setLastEvent();
             }
         });
-
         this.http.put(this.apiUrl + '/lastEvent.json', '1');
+        this.activeEvent.next(null);
     }
 
     public updateEvents(){
         return this.http.get(this.apiUrl + '/events.json')
             .map((res: Response) => res.json())
             .subscribe(arg =>{
-                //this.events.next(arg);
+                this.events.next(arg);
                 this.orderEventsByDate(arg);
             });
+    }
+
+    public updateActiveEvent(event: Event){
+        if (!this.activeEvent){
+            this.activeEvent = new Subject();
+        }
+        this.activeEvent.next(event);
+        this.lastActive = event;
     }
 
     public getLastEvent(){

@@ -18,4 +18,9 @@ export class ProfileComponent {
         if (!this.userService.isUserLogged) this.router.navigateByUrl('/login');
         this.user = this.userService.loggedUser;
     }
+
+    save(){
+        this.userService.loggedUser.facolta = this.user.facolta;
+        this.userService.updateUser().subscribe();
+    }
 }
