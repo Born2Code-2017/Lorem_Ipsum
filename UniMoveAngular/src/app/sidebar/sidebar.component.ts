@@ -20,7 +20,7 @@ export class SidebarComponent {
     createNewEvent(){
         if(!this.appService.activeEvent){
             this.appService.lastEvent++;
-            this.appService.activeEvent.next(new Event());
+            this.appService.updateActiveEvent(new Event());
             this.appService.setLastEvent()
                 .subscribe(arg =>{
                     this.router.navigateByUrl('/event');

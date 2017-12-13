@@ -35,8 +35,10 @@ export class EventDetailsComponent {
                 this.owner = this.userService.getUserFromID(this.activeEvent.owner);
             }
         }
-        this.isUserGoingToPartecipate = this.checkConfirm();
-        this.countPartecipanti();
+        if (this.activeEvent){
+            this.isUserGoingToPartecipate = this.checkConfirm();
+            this.countPartecipanti();
+        }
         // Mi sottoscrivo ai futuri cambiamenti dell'evento attivo
         this.appService.activeEvent
             .subscribe( arg =>{
