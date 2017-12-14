@@ -31,10 +31,8 @@ a{
     height: 46px;
 }
 
-#logout{
-    float:right;
-    right: 0;
-    padding-top:1%;
+.navbar-right{
+    margin-right:1%;
     text-align: center;
 }
 
