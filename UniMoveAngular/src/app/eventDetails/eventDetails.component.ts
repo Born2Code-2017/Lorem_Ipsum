@@ -94,6 +94,22 @@ export class EventDetailsComponent {
         this.userService.updateUser().subscribe();
         this.appService.updateActiveEvent(this.activeEvent);
     }
+    
+    noPartecipate(){
+        if (this.activeEvent.partecipanti){
+            while (this.activeEvent.partecipanti.indexOf(this.userService.loggedUser.id) != -1){
+                this.activeEvent.partecipanti.splice(this.activeEvent.partecipanti.indexOf(this.userService.loggedUser.id), 1);
+            }
+            // aggiorno l'evento
+            this.appService.pushNewEvent(this.activeEvent)
+                .subscribe(arg =>  this.appService.updateEvents());
+            while (this.userService.loggedUser.partecipa.indexOf(this.activeEvent.id) != -1){
+                this.userService.loggedUser.partecipa.splice(this.userService.loggedUser.partecipa.indexOf(this.activeEvent.id, 1));
+            }
+            this.userService.updateUser().subscribe();
+            this.appService.updateActiveEvent(this.activeEvent);
+        }
+    }
 
     checkConfirm(){
         if (this.activeEvent){
@@ -117,5 +133,13 @@ export class EventDetailsComponent {
                 this.partecipanti = 0;
             }
         }
+    }
+
+    delete(){
+        this.appService.deleteEvent(this.activeEvent)
+            .subscribe(arg =>{
+                this.appService.updateEvents();
+                this.router.navigateByUrl('/home');
+            });
     }
 }

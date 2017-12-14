@@ -17,6 +17,9 @@
         <button type="button" class="btn btn-default" (click)="partecipate()" *ngIf="!isUserGoingToPartecipate">
             <i class="glyphicon glyphicon-ok-circle"></i> Partecipa
         </button>
+        <button type="button" class="btn btn-warning" (click)="noPartecipate()" *ngIf="isUserGoingToPartecipate">
+            <i class="glyphicon glyphicon-remove-circle"></i> Annulla partecipazione
+        </button>
     </ng-container>
 
 

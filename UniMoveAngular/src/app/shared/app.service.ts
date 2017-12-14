@@ -81,6 +81,11 @@ export class AppService{
         return this.http.put(this.apiUrl + '/events/' + event.id + '.json', event)
             .map((response: Response) => response.json());
     }
+    
+    public deleteEvent(event: Event){
+        return this.http.delete(this.apiUrl + '/events/' + event.id + '.json')
+            .map((response: Response) => response.json());
+    }
 
     private orderEventsByDate(events: Event[]){
         var previousDate = '----/--/--';
