@@ -3,7 +3,7 @@
     <div class="events col-md-12">
         <div class="date col-md-12" *ngFor="let item of events">
             <div class="col-md-12" *ngIf="item" style="padding: 0">
-                <p class="col-md-12" style="text-align: center">{{item.date}}</p>
+                <p class="col-md-12" style="text-align: center"><img src="assets\img\bar.png"> {{item.date}} <img src="assets\img\bar.png"></p>
                 <ng-container class="event col-md-12" *ngFor="let event of item.events">                        
                     <app-event
                         class="col-md-12"

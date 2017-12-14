@@ -2,33 +2,55 @@
 
     <ng-container class="viewEvent" *ngIf="activeEvent.owner && activeEvent.owner !== userService.loggedUser.id">
         <h1>Dettagli evento</h1>
-        <label>Titolo: {{activeEvent.titolo}}</label>
-        <br>
-        <label>Organizzatore: {{owner.name}} {{owner.surname}}</label>
-        <br>
-        <label>Categoria: {{activeEvent.categoria}}</label>
-        <br>
-        <label>Descrizione: {{activeEvent.descrizione}}</label>
-        <br>
-        <label>Data: {{activeEvent.data}}</label>
-        <br>
-        <label>Ora d'inizio: {{activeEvent.start}}</label>
-        <br>
-        <label>Termina alle: {{activeEvent.end}}</label>
-        <br>
-        <label>Luogo: {{activeEvent.luogo}}</label>
-        <br>
-        <label>Partecipanti: {{partecipanti}}</label>
-        <br>
-        <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
-            <i class="glyphicon glyphicon-menu-left"></i> Indietro
-        </button>
-        <button type="button" class="btn btn-default" (click)="partecipate()" *ngIf="!isUserGoingToPartecipate">
-            <i class="glyphicon glyphicon-ok-circle"></i> Partecipa
-        </button>
-        <button type="button" class="btn btn-warning" (click)="noPartecipate()" *ngIf="isUserGoingToPartecipate">
-            <i class="glyphicon glyphicon-remove-circle"></i> Annulla partecipazione
-        </button>
+        <hr>
+        <section id="main_proponi">
+            <div class="row">
+                <h2>{{activeEvent.titolo}}</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-4 col-sm-4">
+                    <img id="photoprofile" class="center-block" src={{owner.fotoProfilo}}>
+                </div>
+                <div class="col-xs-4 col-sm-4 text-center" id="signature">
+                    <span>{{owner.name}} {{owner.surname}}</span>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    <img src="assets\img\martini2.png" alt="Party">
+                </div>
+            </div>
+            <div class="row text-center" id="grid">
+                <div>
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                    <br>
+                    <span class="info">{{activeEvent.luogo}}</span>
+                </div>
+                <div>
+                    <i class="glyphicon glyphicon glyphicon-calendar"></i>
+                    <br>
+                    <span class="info">{{activeEvent.data}}</span>
+                    <span class="info">{{activeEvent.start}} - {{activeEvent.end}}</span>
+                </div>
+                <div>
+                    <i class="glyphicon glyphicon glyphicon-tag"></i>
+                    <br>
+                    <span class="info">{{activeEvent.categoria}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <p>{{activeEvent.descrizione}}</p>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
+                    Indietro
+                </button>
+                <button type="button" id="update" class="btn btn-default pull-right" (click)="partecipate()" *ngIf="!isUserGoingToPartecipate">
+                    Partecipa
+                </button>
+                <button type="button" id="delete" class="btn btn-warning pull-right" (click)="noPartecipate()" *ngIf="isUserGoingToPartecipate">
+                    Annulla
+                </button>
+            </div>
+        </section>
     </ng-container>
 
 
@@ -48,11 +70,11 @@
                 <div class="col-xs-4 col-sm-4">
                     <img id="photoprofile" class="center-block" src={{loggedUser.fotoProfilo}}>
                 </div>
-                <div class="col-xs-4 col-sm-4 text-center"  id="signature">
+                <div class="col-xs-4 col-sm-4 text-center" id="signature">
                     <span>{{loggedUser.name}} {{loggedUser.surname}}</span>
                 </div>
                 <div class="col-xs-4 col-sm-4">
-                    IMMAGINE DA METTERE CON SOTTO IL BOTTONE
+                    <img src="assets\img\martini.png" alt="Party">
                     <p>
                         <button type="button" class="btn btn-warning">Carica Immagine</button>
                     </p>
@@ -111,18 +133,19 @@
                 </div>
             </div>
             <div class="row">
-                <textarea class="center-block" [(ngModel)]="activeEvent.descrizione" class="form celle center-block" type="text" id="descrizione" name="descrizione" placeholder="Descrizione dell'evento... ">
+                <textarea class="center-block" [(ngModel)]="activeEvent.descrizione" class="form celle center-block" type="text" id="descrizione"
+                    name="descrizione" placeholder="Descrizione dell'evento... ">
                     </textarea>
             </div>
 
             <div class="row">
                 <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
                     <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
-                        <i class="glyphicon glyphicon-menu-left"></i> Indietro
+                        Indietro
                     </button>
 
                     <button type="button" class="btn btn-danger" (click)="delete()">
-                        <i class="glyphicon glyphicon-remove-circle"></i> Elimina evento
+                        Elimina evento
                     </button>
                 </ng-container>
 
@@ -130,9 +153,9 @@
                     Cancella
                 </button>
 
-                <button type="button" class="btn btn-default pull-right" (click)="save()">
+                <button type="button" id="update" class="btn btn-default pull-right" (click)="save()">
                     <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
-                        <i class="glyphicon glyphicon-refresh"></i> Aggiorna evento</ng-container>
+                        Aggiorna</ng-container>
                     <ng-container *ngIf="!activeEvent.owner">
                         Crea</ng-container>
                 </button>
