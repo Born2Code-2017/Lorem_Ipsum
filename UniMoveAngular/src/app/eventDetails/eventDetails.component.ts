@@ -96,22 +96,26 @@ export class EventDetailsComponent {
     }
 
     checkConfirm(){
-        if (!this.userService.loggedUser.partecipa){
-            this.userService.loggedUser.partecipa = [];
-            this.appService.updateActiveEvent(this.activeEvent);
-        }
-        if (this.userService.loggedUser.partecipa.indexOf(this.activeEvent.id) != -1){
-            return true;
+        if (this.activeEvent){
+            if (!this.userService.loggedUser.partecipa){
+                this.userService.loggedUser.partecipa = [];
+                this.appService.updateActiveEvent(this.activeEvent);
+            }
+            if (this.userService.loggedUser.partecipa.indexOf(this.activeEvent.id) != -1){
+                return true;
+            }
         }
         return false;
     }
 
     private countPartecipanti(){
-        if (this.activeEvent.partecipanti){
-            this.partecipanti = this.activeEvent.partecipanti.length;
-        }
-        else{
-            this.partecipanti = 0;
+        if (this.activeEvent){
+            if (this.activeEvent.partecipanti){
+                this.partecipanti = this.activeEvent.partecipanti.length;
+            }
+            else{
+                this.partecipanti = 0;
+            }
         }
     }
 }

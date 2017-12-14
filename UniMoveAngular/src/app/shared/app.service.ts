@@ -91,7 +91,7 @@ export class AppService{
         
         for (let event of sortedEvents)
         {
-            if (event.data != previousDate)
+            if (event.data && event.data != previousDate)
             {
                 eventsByDate.push(new DailyEvents());
                 eventsByDate[eventsByDate.length -1].events = [];
