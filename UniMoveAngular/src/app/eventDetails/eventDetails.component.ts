@@ -6,12 +6,14 @@ import { AppService } from '../shared/app.service';
 
 @Component({
     selector: 'app-eventDetails',
-    templateUrl: 'eventDetails.component.html'
+    templateUrl: 'eventDetails.component.html',
+    styleUrls: ['eventDetails.component.css']
 })
 
 export class EventDetailsComponent {
 
     owner: User;
+    loggedUser: User;
     private activeEvent: Event;
     private isUserGoingToPartecipate: boolean;
     private partecipanti: number;
@@ -24,6 +26,7 @@ export class EventDetailsComponent {
         if(!this.userService.isUserLogged) this.router.navigateByUrl('/login');
         // Per il primo caricamento sucessiovo al routing non riesco a catturare l'aggiornamento della subject quindi uso una variabile (appService.lastActive)
         this.activeEvent = this.appService.lastActive;
+        this.loggedUser = this.userService.loggedUser;
         if(!this.activeEvent){
             this.router.navigateByUrl('/home');
         }

@@ -1,0 +1,117 @@
+h1{
+    font-family: Rosario;
+    text-align: center;
+    font-weight: bold;
+    color: #B393DA;
+    font-size: 30px;
+}
+
+hr{
+    border: 0.5px solid #114E54;
+    width: 369.6px;
+    height: 0.5px;
+}
+
+#main_proponi{
+    padding: 0 10vh;
+}
+
+#titolo::-webkit-input-placeholder {
+    color: #AAADAE;
+    text-align: center;
+    font-size: 30px;
+    font-family: Lato;
+    font-weight: regular;
+ }
+ 
+#titolo:-moz-placeholder { /* Firefox 18- */
+    color: #AAADAE;
+    text-align: center;
+    font-size: 30px;
+    font-family: Lato;
+    font-weight: regular;
+ }
+ 
+#titolo::-moz-placeholder {  /* Firefox 19+ */
+    color: #AAADAE;
+    text-align: center;
+    font-size: 30px;
+    font-family: Lato;
+    font-weight: regular;
+ }
+ 
+#titolo:-ms-input-placeholder {  
+    color: #AAADAE;
+    text-align: center;
+    font-size: 30px;
+    font-family: Lato;
+    font-weight: regular;
+ }
+
+.row{
+     margin: 2vh 4vh;
+ }
+
+.celle{
+    border: 1px solid #95989A;
+    box-shadow: 0px 8px 8px #888888;
+}
+
+#titolo{
+    width: 289px;
+    height: 34px;
+}
+
+#photoprofile{
+    width: 92.47px;
+    height: 82.81px;
+    border: 5px solid #e2e1df;
+    border-radius: 50%;
+}
+
+span{
+    color: #114E54;
+    font-size: 15px;
+    font-family: Lato;
+}
+
+#signature{
+    margin-top: 5vh;
+}
+
+.btn-warning{
+    color: #FCECEC;
+    width: 170.12px;
+    height: 21.83px;
+    font-size: 12px;
+    padding: 0 0 1% 0;
+}
+
+textarea{
+    width: 100%;
+    padding: 0 2vh;
+    height: 20vh;
+}
+
+.btn-danger{
+    color: #FCECEC;
+    width: 152px;
+    height: 58.69px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Rosario;
+}
+
+.btn-default{
+    color: #FCECEC;
+    width: 152px;
+    height: 58.69px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Rosario;
+    background-color: #9598e5;
+}
+
+#grid > div{
+    display: inline-block;
+}

@@ -2,15 +2,24 @@
 
     <ng-container class="viewEvent" *ngIf="activeEvent.owner && activeEvent.owner !== userService.loggedUser.id">
         <h1>Dettagli evento</h1>
-        <label>Titolo: {{activeEvent.titolo}}</label><br>
-        <label>Organizzatore: {{owner.name}} {{owner.surname}}</label><br>
-        <label>Categoria: {{activeEvent.categoria}}</label><br>
-        <label>Descrizione: {{activeEvent.descrizione}}</label><br>
-        <label>Data: {{activeEvent.data}}</label><br>
-        <label>Ora d'inizio: {{activeEvent.start}}</label><br>
-        <label>Termina alle: {{activeEvent.end}}</label><br>
-        <label>Luogo: {{activeEvent.luogo}}</label><br>
-        <label>Partecipanti: {{partecipanti}}</label><br>
+        <label>Titolo: {{activeEvent.titolo}}</label>
+        <br>
+        <label>Organizzatore: {{owner.name}} {{owner.surname}}</label>
+        <br>
+        <label>Categoria: {{activeEvent.categoria}}</label>
+        <br>
+        <label>Descrizione: {{activeEvent.descrizione}}</label>
+        <br>
+        <label>Data: {{activeEvent.data}}</label>
+        <br>
+        <label>Ora d'inizio: {{activeEvent.start}}</label>
+        <br>
+        <label>Termina alle: {{activeEvent.end}}</label>
+        <br>
+        <label>Luogo: {{activeEvent.luogo}}</label>
+        <br>
+        <label>Partecipanti: {{partecipanti}}</label>
+        <br>
         <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
             <i class="glyphicon glyphicon-menu-left"></i> Indietro
         </button>
@@ -25,66 +34,111 @@
 
     <ng-container class="modEvent" *ngIf="!activeEvent.owner || activeEvent.owner === userService.loggedUser.id">
         <h1 *ngIf="activeEvent.owner === userService.loggedUser.id">Modifica evento</h1>
-        <h1 *ngIf="!activeEvent.owner">Nuovo evento</h1>
+        <h1 *ngIf="!activeEvent.owner">PROPONI EVENTO</h1>
+        <hr>
+        <section id="main_proponi">
+            <div class="row">
+                <input required #titolo2="ngModel" [(ngModel)]="activeEvent.titolo" class="form center-block celle" type="text" id="titolo"
+                    name="titolo" placeholder="Nome Evento">
+                <div [hidden]="titolo2.valid || titolo2.pristine" class="alert alert-danger">
+                    Il Nome Evento è obbligatorio!
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-4 col-sm-4">
+                    <img id="photoprofile" class="center-block" src={{loggedUser.fotoProfilo}}>
+                </div>
+                <div class="col-xs-4 col-sm-4 text-center"  id="signature">
+                    <span>{{loggedUser.name}} {{loggedUser.surname}}</span>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    IMMAGINE DA METTERE CON SOTTO IL BOTTONE
+                    <p>
+                        <button type="button" class="btn btn-warning">Carica Immagine</button>
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center" id="grid">
+                <div class="">
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                    <br>
+                    <input required #where="ngModel" [(ngModel)]="activeEvent.luogo" class="form celle" type="where" id="where" name="where"
+                        placeholder="Indirizzo Evento">
+                    <div [hidden]="where.valid || where.pristine" class="alert alert-danger">
+                        Il luogo è obbligatorio!
+                    </div>
+                </div>
 
+                <div class="">
+                    <i class="glyphicon glyphicon glyphicon-calendar"></i>
+                    <br>
+                    <input required #date2="ngModel" [(ngModel)]="activeEvent.data" class="form celle" type="date" id="date" name="date">
+                    <div [hidden]="date2.valid || date2.pristine" class="alert alert-danger">
+                        La Data è obbligatoria!
+                    </div>
+                </div>
 
-        <label for="titolo">Titolo:</label>
-        <input required #titolo2="ngModel" [(ngModel)]="activeEvent.titolo" class="form form-control" type="text" id="titolo" name="titolo" placeholder="titolo...">
-        <div [hidden]="titolo2.valid || titolo2.pristine" class="alert alert-danger">
-            titolo is required
-        </div>
+                <div class="">
+                    <span>Start</span>
+                    <br>
+                    <input required #start2="ngModel" [(ngModel)]="activeEvent.start" class="form celle" type="time" id="start" name="start">
+                    <div [hidden]="start2.valid || start2.pristine" class="alert alert-danger">
+                        La data di inizio è obbligatoria!
+                    </div>
+                </div>
 
-        <label for="category">Categoria</label>
-        <select required #category2="ngModel" [(ngModel)]="activeEvent.categoria" class="form form-control" name="category" id="category">
-            <option value=2>Aperitivi</option>
-            <option value=3>Convention</option>
-            <option value=4>Formazione</option>
-            <option value=5>Dibattiti</option>
-        </select>
-        <div [hidden]="category2.valid || category2.pristine" class="alert alert-danger">
-            Category is required
-        </div>
-        
-        <label for="date">Data:</label>
-        <input required #date2="ngModel" [(ngModel)]="activeEvent.data" class="form form-control" type="date" id="date" name="date">
-        <div [hidden]="date2.valid || date2.pristine" class="alert alert-danger">
-            Date is required
-        </div>
+                <div class="">
+                    <span>End</span>
+                    <br>
+                    <input required #end2="ngModel" [(ngModel)]="activeEvent.end" class="form celle" type="time" id="end" name="end">
+                    <div [hidden]="end2.valid || end2.pristine" class="alert alert-danger">
+                        La data di fine è obbligatoria!
+                    </div>
+                </div>
 
-        <label for="start">Start time:</label>
-        <input required #start2="ngModel" [(ngModel)]="activeEvent.start" class="form form-control" type="time" id="start" name="start">
-        <div [hidden]="start2.valid || start2.pristine" class="alert alert-danger">
-            Start time is required
-        </div>
-        
-        <label for="end">End time:</label>
-        <input required #end2="ngModel" [(ngModel)]="activeEvent.end" class="form form-control" type="time" id="end" name="end">
-        <div [hidden]="end2.valid || end2.pristine" class="alert alert-danger">
-            End time is required
-        </div>
+                <div class="">
+                    <i class="glyphicon glyphicon glyphicon-tag"></i>
+                    <br>
+                    <select required #category2="ngModel" [(ngModel)]="activeEvent.categoria" class="form celle" name="category" id="category">
+                        <option value=2>Aperitivi</option>
+                        <option value=3>Convention</option>
+                        <option value=4>Formazione</option>
+                        <option value=5>Dibattiti</option>
+                    </select>
+                    <div [hidden]="category2.valid || category2.pristine" class="alert alert-danger">
+                        La Categoria è obbligatoria!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <textarea class="center-block" [(ngModel)]="activeEvent.descrizione" class="form celle center-block" type="text" id="descrizione" name="descrizione" placeholder="Descrizione dell'evento... ">
+                    </textarea>
+            </div>
 
-        <label for="descrizione">Descrizione:</label>
-        <input [(ngModel)]="activeEvent.descrizione" class="form form-control" type="text" id="descrizione" name="descrizione" placeholder="descrizione...">
+            <div class="row">
+                <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
+                    <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
+                        <i class="glyphicon glyphicon-menu-left"></i> Indietro
+                    </button>
 
+                    <button type="button" class="btn btn-danger" (click)="delete()">
+                        <i class="glyphicon glyphicon-remove-circle"></i> Elimina evento
+                    </button>
+                </ng-container>
 
-        <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
-            <button type="button" class="btn btn-default" (click)="router.navigateByUrl('/home')">
-                <i class="glyphicon glyphicon-menu-left"></i> Indietro
-            </button>
+                <button type="button" class="btn btn-danger" (click)="annulla()" *ngIf="!activeEvent.owner">
+                    Cancella
+                </button>
 
-            <button type="button" class="btn btn-danger" (click)="delete()">
-                <i class="glyphicon glyphicon-remove-circle"></i> Elimina evento
-            </button>
-        </ng-container>
-
-        <button type="button" class="btn btn-danger" (click)="annulla()" *ngIf="!activeEvent.owner">
-            <i class="glyphicon glyphicon-remove-circle"></i> Annulla creazione
-        </button>
-
-        <button type="button" class="btn btn-default" (click)="save()">
-            <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id"><i class="glyphicon glyphicon-refresh"></i> Aggiorna evento</ng-container>
-            <ng-container *ngIf="!activeEvent.owner"><i class="glyphicon glyphicon-save"></i> Proponi evento</ng-container>
-        </button>
+                <button type="button" class="btn btn-default pull-right" (click)="save()">
+                    <ng-container *ngIf="activeEvent.owner === userService.loggedUser.id">
+                        <i class="glyphicon glyphicon-refresh"></i> Aggiorna evento</ng-container>
+                    <ng-container *ngIf="!activeEvent.owner">
+                        Crea</ng-container>
+                </button>
+            </div>
+        </section>
 
     </ng-container>
+
 </div>
