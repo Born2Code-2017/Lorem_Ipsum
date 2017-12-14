@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import * as _ from 'lodash';
 
 import { Event, DailyEvents } from '../app.models';
+import { UsersService } from '../users/users.service';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -12,6 +14,7 @@ export class AppService{
 
     private apiUrl: string;
     public events: Subject<any>;
+    private localEvents: Event[];
     public activeEvent: Subject<any>;
     public lastActive: Event; // Useful in case of a activeEvent value change during routing
     public lastEvent: number;
@@ -19,7 +22,11 @@ export class AppService{
     private privateFilter: number;
     public filter: Subject<number>;
 
-    constructor(private http: Http){
+    constructor(
+        private http: Http,
+        private userService: UsersService,
+        private router: Router
+    ){
         this.apiUrl = 'https://born2code-d2578.firebaseio.com/loremipsum/unimove';
         this.events = new Subject();
         this.activeEvent = new Subject();
@@ -34,14 +41,19 @@ export class AppService{
         });
         this.http.put(this.apiUrl + '/lastEvent.json', '1');
         this.activeEvent.next(null);
+        this.filter.subscribe(arg =>{
+            this.orderEventsByDate(this.localEvents, arg);
+            this.router.navigateByUrl('/home');
+        });
     }
 
     public updateEvents(){
         return this.http.get(this.apiUrl + '/events.json')
             .map((res: Response) => res.json())
             .subscribe(arg =>{
-                this.events.next(arg);
+                //this.events.next(arg);
                 this.orderEventsByDate(arg);
+                this.localEvents = arg;
             });
     }
 
@@ -87,7 +99,7 @@ export class AppService{
             .map((response: Response) => response.json());
     }
 
-    private orderEventsByDate(events: Event[]){
+    private orderEventsByDate(events: Event[], filter: number = -1){
         var previousDate = '----/--/--';
         var sortedEvents = events;
         var eventsByDate: DailyEvents[] = [];
@@ -96,29 +108,36 @@ export class AppService{
         
         for (let event of sortedEvents)
         {
-            if (event.data && event.data != previousDate)
-            {
-                eventsByDate.push(new DailyEvents());
-                eventsByDate[eventsByDate.length -1].events = [];
-    
-                if(this.getYear(event.data) != previousDate.substring(0,4))
+            if (
+                filter == -1 ||
+                event.categoria == filter ||
+                (filter == 1 && event.owner == this.userService.loggedUser.id) ||
+                (filter == 0 && this.userService.loggedUser.partecipa.indexOf(event.id) != -1)
+            ){
+                if (event.data && event.data != previousDate)
                 {
-                    eventsByDate[eventsByDate.length -1].date = this.getDay(event.data) + ' ' + this.getMonth(event.data) + ' ' + this.getYear(event.data);
-                }
-                else
-                {
-                    if(event.data.substring(5,7) != previousDate.substring(5,7))
+                    eventsByDate.push(new DailyEvents());
+                    eventsByDate[eventsByDate.length -1].events = [];
+        
+                    if(this.getYear(event.data) != previousDate.substring(0,4))
                     {
-                        eventsByDate[eventsByDate.length -1].date = this.getDay(event.data) + '  '+ this.getMonth(event.data);
+                        eventsByDate[eventsByDate.length -1].date = this.getDay(event.data) + ' ' + this.getMonth(event.data) + ' ' + this.getYear(event.data);
                     }
                     else
                     {
-                        eventsByDate[eventsByDate.length -1].date = this.getDay(event.data);
+                        if(event.data.substring(5,7) != previousDate.substring(5,7))
+                        {
+                            eventsByDate[eventsByDate.length -1].date = this.getDay(event.data) + '  '+ this.getMonth(event.data);
+                        }
+                        else
+                        {
+                            eventsByDate[eventsByDate.length -1].date = this.getDay(event.data);
+                        }
                     }
+                    previousDate = event.data;
                 }
-                previousDate = event.data;
+                eventsByDate[eventsByDate.length -1].events.push(event);
             }
-            eventsByDate[eventsByDate.length -1].events.push(event);
         }
         this.events.next(eventsByDate);
     }
