@@ -18,6 +18,7 @@ import { FaqComponent } from './faq/faq.component';
 import { EventDetailsComponent } from './eventDetails/eventDetails.component';
 import { EventComponent } from './events/event.component';
 import { ValuesPipe } from './shared/values.pipe';
+import { CategoriesPipe } from './shared/categories.pipe';
 import { CategoryDirective } from './shared/categories.directive';
 
 
@@ -27,7 +28,7 @@ import { CategoryDirective } from './shared/categories.directive';
     SidebarComponent, EventsComponent,
     ProfileComponent, FaqComponent,
     EventDetailsComponent, EventComponent,
-    ValuesPipe,
+    ValuesPipe, CategoriesPipe,
     CategoryDirective
   ],
   imports: [
