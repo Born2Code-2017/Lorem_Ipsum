@@ -1,8 +1,11 @@
-<div class="eventComponent" (click)="setAsActive()" style="padding: 0">
+<div class="eventComponent" (click)="setAsActive()">
     <div class="dati col-md-8" style="text-align: left; padding: 0">
         {{event.titolo}}
         <br>
-        {{event.start}} - {{event.end}}
+        <div id="dettagli">
+            <label id="time">{{event.start}} - {{event.end}}</label>
+            <label id="partecipanti"><a class="glyphicon glyphicon-heart"></a> {{getPartecipanti()}}</label>
+        </div>
     </div>
     <div class="owner col-md-4" style="text-align: right; padding: 0">
         <img class="img-circle" src={{getOwnerPhoto()}} width="50px" height="50px">

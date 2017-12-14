@@ -1,0 +1,20 @@
+.eventComponent{
+    padding: 0;
+}
+.eventComponent .img-circle{
+    border: 1px solid white;
+}
+#dettagli{
+    overflow: hidden;
+}
+#dettagli #time{
+    float: left;
+    font-weight: 500;
+}
+#dettagli #partecipanti{
+    float: right;
+}
+#dettagli #partecipanti a{
+    color: red;
+    font-size: 25px;
+}

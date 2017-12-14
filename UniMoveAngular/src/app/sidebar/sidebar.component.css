@@ -6,10 +6,17 @@
     background-color: #9292EE;
     margin-top: 30px;
     margin-bottom: 10px;
+    box-shadow: 0 8px 8px gray;
+    border-width: 0px;
 }
 .sidebarContainer button label{
-    color: white;
+    color: #FE90A3;
     font-family: Lato;
+    font-weight: bolt;
+    font-size: 19px;
+}
+.sidebarContainer button label:hover{
+    cursor: pointer;
 }
 .sidebarContainer ul{
     color: #c692b9;
@@ -19,4 +26,9 @@
     margin: 20px auto;
     font-family: Lato;
     font-weight: 700;
+    text-shadow: 0 0 20px lightgray;
+}
+.sidebarContainer li:hover{
+    cursor: pointer;
+    text-shadow: 0 0 20px gray;
 }

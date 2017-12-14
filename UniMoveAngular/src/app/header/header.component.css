@@ -13,6 +13,14 @@ div .nav-item{
     background-color: transparent;
 }
 
+.headerContainer ul li{
+    font-size: 33px;
+    text-align: center;
+}
+div.container-fluid div.row{
+    margin-top: 30px;
+}
+
 ul{
     list-style-type: none;
     padding-top:1%;

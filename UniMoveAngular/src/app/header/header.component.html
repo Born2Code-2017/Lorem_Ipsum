@@ -1,27 +1,29 @@
 <div class="headerContainer">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" routerLink="/home">
-                <img src="assets\img\unimove.png" alt="UniMove">
-            </a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li>
-                <a [routerLinkActive]="['active']" [routerLink]="['/home']" name="home">Home</a>
-            </li>
-            <li>
-                <a [routerLinkActive]="['active']" [routerLink]="['/faq']" name="faq">FAQ</a>
-            </li>
-            <li>
-                <a [routerLinkActive]="['active']" [routerLink]="['/profile']" name="profilo">Profilo</a>
-            </li>
-        </ul>
-        <div class="nav navbar-nav navbar-right">
-            <a routerLink="/profile" name="profilo">
-                <img id="photoprofile" src={{loggedUser.fotoProfilo}}>
-            </a>
-            <br>
-            <a name="logout" (click)="usersService.logout()">Logout</a>
+    <div class="container-fluid col-md-12">
+        <div class="row">
+            <div class="navbar-header col-md-2 vcenter">
+                <a class="navbar-brand" routerLink="/home">
+                    <img src="assets\img\unimove.png" alt="UniMove">
+                </a>
+            </div>
+            <ul class="nav navbar-nav col-md-4 vcenter">
+                <li class="col-md-4">
+                    <a [routerLinkActive]="['active']" [routerLink]="['/home']" name="home">Home</a>
+                </li>
+                <li class="col-md-4">
+                    <a [routerLinkActive]="['active']" [routerLink]="['/faq']" name="faq">FAQ</a>
+                </li>
+                <li class="col-md-4">
+                    <a [routerLinkActive]="['active']" [routerLink]="['/profile']" name="profilo">Profilo</a>
+                </li>
+            </ul>
+            <div class="nav navbar-nav navbar-right col-md-1 col-md-offset-5 vcenter">
+                <a routerLink="/profile" name="profilo">
+                    <img id="photoprofile" src={{loggedUser.fotoProfilo}}>
+                </a>
+                <br>
+                <a name="logout" (click)="usersService.logout()">Logout</a>
+            </div>
         </div>
     </div>
 </div>

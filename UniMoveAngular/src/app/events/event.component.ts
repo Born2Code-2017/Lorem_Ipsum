@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-event',
-    templateUrl: 'event.component.html'
+    templateUrl: 'event.component.html',
+    styleUrls: ['event.component.css']
 })
 
 export class EventComponent {
@@ -34,5 +35,12 @@ export class EventComponent {
     setAsActive(){
         this.router.navigateByUrl('/event');
         this.appService.updateActiveEvent(this.event);
+    }
+
+    getPartecipanti(){
+        if (this.event.partecipanti){
+            return this.event.partecipanti.length;
+        }
+        return '0';
     }
 }
